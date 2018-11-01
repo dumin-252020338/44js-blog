@@ -1,0 +1,35 @@
+html
+    head
+        title 44-js   
+        style.
+            body{ background: #ccc}
+            div{display:none; width: 200px; height: 300px; border: 1px solid #000; font-size:20px;}
+            input{width:200px}
+            .login{display:block; background:pink}
+            form>input{width:100px}
+            .regist{display:block; background:#999}
+            button{width:200px;height:30px;font-size:16px;cursor:pointer;}
+            a{text-decoration: none}
+
+    body
+        div(class=show?"":"login") 这是登录页面2
+            form(action="/user/login" method='post')
+                p 用户名：
+                    input(type="text" name="name")
+                p 密码：
+                    input(type="password" name="pwd")
+                input(type="submit" value="登录" )
+                input(type="reset" value="重置" )
+            button() 
+                a(href='http://localhost:3000/user/regist') 去注册
+        div(class=show?"regist":"") 这是注册页面1
+            form(action="/user/regist" method="post")
+                p 用户名：
+                    input(type="text" name="name")
+                p 请输入密码：
+                    input(type="password" name="pwd")
+                p 再次输入密码：
+                    input(type="password" name="pwds")
+                input(type="submit" value="注册" )
+            button
+                a(href='http://localhost:3000/user/login') 去登录
