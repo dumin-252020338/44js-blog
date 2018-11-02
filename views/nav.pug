@@ -2,21 +2,8 @@ doctype html
 html
     head
         title 44-js
-        style.
-            body{ background: #ddd}
-            div#warp{ width: 200px; height: 200px; border: 1px solid #000}
-            .regist{background:pink}
-            .login{background:red}
-            button{width:100px;height:30px;font-size:16px;cursor:pointer;}
-            a{text-decoration: none; color: #000}
-            a:hover{color:red}
+        style
+            include nav.css
     body
-        div(id="con") 首页0
-        div(id="warp") 这是首页的内容
-        button() 
-            a(href='http://localhost:3000/user/regist') 注册
-        button() 
-            a(href='http://localhost:3000/user/login') 登录
-        button() 
-            a(href='http://localhost:3000/user') 测试接口
-        
+        include nav-con.pug
+            
