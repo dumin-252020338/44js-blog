@@ -10,7 +10,7 @@ router.get("/", async(ctx)=>{
     await ctx.render("nav")
 })
 router.get(/^\/user\/(?=regist|login)/, async(ctx)=>{
-    const show = /regist$/.test(ctx.path)
+    const show = /login$/.test(ctx.path)
     // console.log(show)
     // console.log('2')
     await ctx.render("reg",{
