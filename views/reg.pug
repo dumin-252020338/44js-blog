@@ -2,50 +2,14 @@ html
     head
         title 44-js   
         style
-            include layui/css/nav.css
-            include layui/css/reg.css
-        
-        script
-            //- include layui/js/reg.js
-            //- include layui/js/layer/layer.js
-            //- include js/layui.js
-
+            include js-css/css/nav.css
+            include js-css/css/reg.css
     body
-        include nav-con.pug
-        form(action="")
-            h2 请填写注册信息
-            //- 用户名
-            div(class="user layui-form-item")
-                label(class="layui-form-label") 用户昵称：
-                div(class="layui-input-block")
-                    input(type="text" name="title" required  lay-verify="username" placeholder="请输入您的用户名" autocomplete="off" class="layui-input")
-                p 4到16位(字母,数字,下划线,减号)
-            
-            //- 手机号
-            div(class="phone layui-form-item")
-                label(class="layui-form-label") 手机号码：
-                div(class="layui-input-block")
-                    input(type="text" name="title" required  lay-verify="required" placeholder="请输入您的手机号" autocomplete="off" class="layui-input")
-                p 请输入11位手机号
-            //- <!-- 密码框 -->
-            div(class="pwd layui-form-item")
-                label(class="layui-form-label") 输入密码：
-                div(class="layui-input-block")
-                    input(type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input")
-                p 最少6位,大,小写字母,数字,特殊字符各一个
-            //- <!-- 确认密码 -->
-            div(class="pwds layui-form-item")
-                label(class="layui-form-label") 重复密码：
-                div(class="layui-input-block")
-                    input(type="password" name="password" required  lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input")
-            //- <!-- 电子邮箱 -->
-            div(class="email layui-form-item")
-                label(class="layui-form-label") 电子邮箱：
-                div(class="layui-input-inline")
-                    input(type="text" name="email" required  lay-verify="required" placeholder="请输入邮箱地址" autocomplete="off" class="layui-input")
-            //- <!-- 提交 -->
-            div(class="btn layui-form-item")
-                div(class="layui-input-block")
-                    input(class="layui-btn" type="button" value="立即提交")
-                    input(class="layui-btn" type="button" value="重置")
-    
+        include nav-title.pug
+        include regist.pug
+        include login.pug
+    script
+        include js-css/js/reg.js
+        
+        
+        
