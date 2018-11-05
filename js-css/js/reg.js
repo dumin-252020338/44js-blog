@@ -13,9 +13,9 @@
     let btn = document.querySelector('.btn .layui-btn')
     //检验用户名
     let userValue = '';
+    //用户名正则，4到16位（字母，数字，下划线，减号）
     let uPattern = /^[a-zA-Z0-9_-]{4,16}$/;
     user.onblur = function () {
-        //用户名正则，4到16位（字母，数字，下划线，减号）
         userValue = user.value;
         if (!uPattern.test(userValue)) {
             user.value = "";
@@ -89,7 +89,6 @@
         }
     }
     //提交按钮
-    console.log(btn)
     btn.onclick = function () {
         if (uPattern.test(userValue) && phone.style.color === 'red' && pwd.style.color === 'red' && pwds.style.color === 'red' && email.style.color === 'red') {
             console.log(111)
@@ -99,7 +98,6 @@
             console.log(allStr)
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "http://localhost:3001" + allStr);
-            // console.log('123')
             xhr.send();
             xhr.onload = function () {
                 console.log(2)

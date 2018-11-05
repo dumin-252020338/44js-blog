@@ -4,6 +4,7 @@ const views = require('koa-views')
 const body = require('koa-body')
 const static = require('koa-static')
 const logger = require('koa-logger')
+const cors = require('koa2-cors')
 const {join} = require('path')
 const router = require("./router/router.js")
 //生成koa实例
@@ -14,6 +15,7 @@ app.use(logger())
 
 //配置koa-body 处理post请求的数据
 app.use(body())
+app.use(cors())
 
 //配置静态资源目录
 app.use(static(join(__dirname, "js-css")))

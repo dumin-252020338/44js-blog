@@ -10,7 +10,10 @@ html
             button{width:100px;height:30px;font-size:16px;cursor:pointer;}
             a{text-decoration: none; color: #000}
             a:hover{color:red}
+        style
+            include ../js-css/css/nav.css  
     body
+        include nav-title.pug    
         div(id="con") 用户名已存在 请重新注册 即将跳到登陆页面
         a(href="http://localhost:3000/user")
     script.
