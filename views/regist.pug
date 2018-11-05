@@ -1,17 +1,17 @@
-form(id=show ? "" : "login", action="regist2" method="get")
+form(id=show ? "" : "login", action="regist" method="post")
     h2 请填写注册信息
     //- 用户名
     div(class="user layui-form-item")
         label(class="layui-form-label") 用户昵称：
         div(class="layui-input-block")
-            input(type="text" name="title" required  lay-verify="username" placeholder="请输入您的用户名" autocomplete="off" class="layui-input")
+            input(type="text" name="username" required  lay-verify="username" placeholder="请输入您的用户名" autocomplete="off" class="layui-input")
         p 4到16位(字母,数字,下划线,减号)
     
     //- 手机号
     div(class="phone layui-form-item")
         label(class="layui-form-label") 手机号码：
         div(class="layui-input-block")
-            input(type="text" name="title" required  lay-verify="required" placeholder="请输入您的手机号" autocomplete="off" class="layui-input")
+            input(type="text" name="phone" required  lay-verify="required" placeholder="请输入您的手机号" autocomplete="off" class="layui-input")
         p 请输入11位手机号
     //- <!-- 密码框 -->
     div(class="pwd layui-form-item")
@@ -23,7 +23,7 @@ form(id=show ? "" : "login", action="regist2" method="get")
     div(class="pwds layui-form-item")
         label(class="layui-form-label") 重复密码：
         div(class="layui-input-block")
-            input(type="password" name="password" required  lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input")
+            input(type="password" name="passwords" required  lay-verify="required" placeholder="请再次输入密码" autocomplete="off" class="layui-input")
     //- <!-- 电子邮箱 -->
     div(class="email layui-form-item")
         label(class="layui-form-label") 电子邮箱：

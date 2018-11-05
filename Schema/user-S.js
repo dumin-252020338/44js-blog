@@ -2,7 +2,10 @@ const { Schema } = require('./config')
 
 const UserSchema = new Schema({
     username:String,
-    password:String
+    phone:Number,
+    password:String,
+    passwords:String,
+    emali:String,
 }, {versionKey: false})
 
 module.exports = UserSchema
