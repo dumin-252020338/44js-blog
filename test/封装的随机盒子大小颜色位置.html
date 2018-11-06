@@ -6,45 +6,27 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <title>44js-意愿</title>
     <style>
-    #box{
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        border: 1px solid red;
-    }
-    p{
-        display:inline-block;
-        position: relative;
-        width: 100px;
-        height: 100px;
-        /* border: 1px solid; */
-    }
+        body{
+            background-color:#000;
+        }
+        p{
+            display:inline-block;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
     <div id='box'>
-        <p id='p1'></p>
-        <p id='p2'></p>
     </div>
 </body>
     <script>
         let {random, floor, max, min} = Math
-        let r = (random()*256).toFixed(0),
-            g = (random()*256).toFixed(0),
-            b = (random()*256).toFixed(0),
+        let r = g = b = (random()*256).toFixed(0),
             a = random().toFixed(1);
-
-        // box.onclick = function (){
-        function rgba(){
-            return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.random().toFixed(1)*1 +")"
-        }
-            // let color = rgba()
-            // box.innerHTML += "<p style = 'background: "+color+" '>  </p>"
-        // }
-
-        let fn = function (h, w, color, t, l){
-            this.width = h,
-            this.height = w,
+        let fn = function (color, t, l){
             this.color = color,
             this.top = t;
             this.left = l;
@@ -54,35 +36,47 @@
                 console.log(a+ b)
             }
         }
-        //随机大小
-        let radNum = floor(random()*100 + 100)
-        //随机位置
-        let radPos = floor(random()*20 + 30)
-        console.log(radPos)
+        //生成随机颜色
+        function rgba(){
+            return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.random().toFixed(1)*1 +")"
+        }
+        //随机盒子top
+        function topPos(){
+            return floor(random() * 500 + 80)
+        }
+        //随机盒子left
+        function leftPos(){
+            return floor(random() * 500 + 600)
+        }
+        //生成多个p
+        for(let i=0; i<4; i++){
+            document.body.innerHTML += "<p></p>";
+        }
         let timer
-
-        let fn1 = new fn(floor(random()*80 + 120), floor(random()*100 + 150), rgba(), floor(random()*100 + 30),floor(random()*120 + 50) )
         
-        let fn2 = new fn(floor(random()*100 + 70), floor(random()*50 + 100), rgba(),floor(random()*130 + 10),floor(random()*200 + 20)  )
-        document.onclick = function(){
-            timer = setInterval(function(){
-                    p1.style.width = fn1.width +'px';
-                    p1.style.height = fn1.height +'px';
-                    p1.style.background = fn1.color;
-                    p1.style.top = fn1.top +'px';
-                    p1.style.left = fn1.left +'px';
-               
-                    p2.style.width = fn2.width +'px';
-                    p2.style.height = fn2.height +'px';
-                    p2.style.background = fn2.color;
-                    p2.style.top = fn2.top +'px';
-                    p2.style.left = fn2.left +'px';
-            },1000)
-            
-        }
-        box.onclick = function(){
-            fn1.add(2,3)
-        }
+        // document.body.innerHTML += "<p></p>";
+        timer = function(){
+            let fn1 = new fn(rgba(), topPos(), leftPos())
+            let fn2 = new fn(rgba(), topPos(), leftPos())
+            let fn3 = new fn(rgba(), topPos(), leftPos())
+            let fn4 = new fn(rgba(), topPos(), leftPos())
+            let p = document.getElementsByTagName("p")
+                p[0].style.background = fn1.color;
+                p[0].style.top = fn1.top +'px';
+                p[0].style.left = fn1.left +'px';
 
+                p[1].style.background = fn2.color;
+                p[1].style.top = fn2.top +'px';
+                p[1].style.left = fn2.left +'px';
+
+                p[2].style.background = fn3.color;
+                p[2].style.top = fn3.top +'px';
+                p[2].style.left = fn3.left +'px';
+
+                p[3].style.background = fn4.color;
+                p[3].style.top = fn4.top +'px';
+                p[3].style.left = fn4.left +'px';
+        }
+        setInterval(timer,10)
     </script>
 </html>
