@@ -38,22 +38,21 @@
         }
         //生成随机颜色
         function rgba(){
-            return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.random().toFixed(1)*1 +")"
+            return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", 1)"
         }
         //随机盒子top
         function topPos(){
-            return floor(random() * 500 + 80)
+            return floor(random() * 800 + 10)
         }
         //随机盒子left
         function leftPos(){
-            return floor(random() * 500 + 600)
+            return floor(random() * 1000 + 50)
         }
         //生成多个p
         for(let i=0; i<4; i++){
             document.body.innerHTML += "<p></p>";
         }
         let timer
-        
         // document.body.innerHTML += "<p></p>";
         timer = function(){
             let fn1 = new fn(rgba(), topPos(), leftPos())
@@ -77,6 +76,6 @@
                 p[3].style.top = fn4.top +'px';
                 p[3].style.left = fn4.left +'px';
         }
-        setInterval(timer,10)
+        setInterval(timer,1)
     </script>
 </html>

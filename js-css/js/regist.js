@@ -8,10 +8,10 @@
 //     exports('index', {}); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
 //   });    
 
-layui.use(["layer", "form"], function () {
-    var layer = layui.layer,
-        form = layui.form;
-        layer.msg('hello');
+// layui.use(["layer", "form"], function () {
+//     var layer = layui.layer,
+//         form = layui.form;
+//         layer.msg('hello');
     // 如果只加载一个模块，可以不填数组。如：layui.use('form')
 
     let user = document.querySelector('.user input')
@@ -29,7 +29,7 @@ layui.use(["layer", "form"], function () {
         if (!uPattern.test(userValue)) {
             user.value = "";
             user.style.color = '';
-            layer.msg('用户名不符合要求'); 
+            // layer.msg('用户名不符合要求'); 
         } else {
             user.style.color = 'red';
         }
@@ -43,7 +43,7 @@ layui.use(["layer", "form"], function () {
         if (reg.test(phId) && phArry.length === 11) {
             phone.style.color = 'red';
         } else {
-            layer.msg('手机号不符合要求'); 
+            // layer.msg('手机号不符合要求'); 
             phone.value = "";
             phone.style.color = '';
         }
@@ -56,7 +56,7 @@ layui.use(["layer", "form"], function () {
         pwdValue = pwd.value;
 
         if (!pPattern.test(pwdValue)) {
-            layer.msg('密码不符合要求'); 
+            // layer.msg('密码不符合要求'); 
             pwd.value = "";
             pwd.style.color = '';
         } else {
@@ -70,7 +70,7 @@ layui.use(["layer", "form"], function () {
         if (pwds.value === pwd.value) {
             pwds.style.color = 'red';
         } else {
-            layer.msg('两次密码不一致'); 
+            // layer.msg('两次密码不一致'); 
             pwd.value = "";
             pwd.style.color = '';
             pwds.value = "";
@@ -90,7 +90,7 @@ layui.use(["layer", "form"], function () {
         if (!ePattern.test(emailValue)) {
             email.style.color = '';
             email.value = "";
-            layer.msg('邮箱不符合要求'); 
+            // layer.msg('邮箱不符合要求'); 
         } else {
             email.style.color = 'red';
 
@@ -128,4 +128,4 @@ layui.use(["layer", "form"], function () {
             console.log(222)
         }
     }
-});
+// });
