@@ -2,20 +2,14 @@ doctype html
 html
     head
         title 44-js
-        style.
-            body{ background: #ddd}
-            div#warp{ width: 200px; height: 200px; border: 1px solid #000}
-            .regist{background:pink}
-            .login{background:red}
-            button{width:100px;height:30px;font-size:16px;cursor:pointer;}
-            a{text-decoration: none; color: #000}
-            a:hover{color:red}
         style
             include ../js-css/css/nav.css  
+            include ../js-css/css/jump.css  
     body
         include nav-title.pug
-        div(id="con") 注册成功 即将跳到登陆页面
-        a(href="http://localhost:3000/user")
+        div(id="jump")   
+            p(class="status") !{status}
+            p(class='src') !{back} 
     script.
         setTimeout(()=>{
             location.href = '/user/login'

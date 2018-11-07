@@ -1,0 +1,15 @@
+#jump {
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    text-align: center;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px #838383
+}
+
+#jump P {
+    line-height: 100px;
+    font-size: 18px;
+    color: #41ff7b
+}

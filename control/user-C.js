@@ -16,12 +16,9 @@ exports.regist = async (ctx) =>{
     const password = user.password 
     const passwords = user.passwords 
     const email = user.email 
-    console.log('用户昵称'+username)
-    console.log('手机号码'+phone)
-    console.log('输入密码'+password)
-    console.log('重复密码'+passwords)
-    console.log('电子邮箱'+email)
     
+    let status =""
+    let back =""
     await new Promise((resolve, reject) =>{
         //去 users 数据库查询
         User.find({username: username}, (err, data)=>{
@@ -51,13 +48,22 @@ exports.regist = async (ctx) =>{
     })
     .then(async (data) =>{
         if(data){
-            await ctx.render('success')
+            await ctx.render('success', {
+                status: "注册成功",                
+                back: "即将跳转登录页面"
+            })
         }else{
-            await ctx.render('fail')
+            await ctx.render('fail', {
+                status: "用户名已存在,请重新注册",
+                back: "即将返回注册页面"
+            })
         }
     })
     .catch(async(err) =>{
-        await ctx.render('repeat')
+        await ctx.render('fail',{
+            status: "用户名已存在,请重新注册",
+            back: "即将返回注册页面"
+        })
     })
 }
 
@@ -67,11 +73,7 @@ exports.login = async (ctx) =>{
     const user = ctx.request.body
     console.log(user)
     const username = user.username
-    const phone = user.phone
     const password = user.password 
-    console.log('用户的登录名'+username)
-    console.log('用户的手机号'+phone)
-    console.log('用户的密码'+password)
     
     await new Promise((resolve, reject) =>{
         User.find({username: username}, (err, data)=>{
@@ -87,17 +89,25 @@ exports.login = async (ctx) =>{
                 return resolve(data)
             }
             resolve("")
-            
         })
     })
     .then(async (data) =>{
         if(!data){
-            await ctx.render('密码错误')
+            await ctx.render('login-again', {
+                status: "密码错误，请重新登录",
+                back: "即将返回登录页面"
+            })
         }else{
-            await ctx.render('登陆成功')
+            await ctx.render('success', {
+                status: "登录成功",
+                back: "即将跳转个人中心"
+            })
         }
     })
     .catch(async(err) =>{
-        await ctx.render('repeat')
+        await ctx.render('login-again', {
+            status: "密码错误，请重新登录",
+            back: "即将返回登录页面"
+        })
     })
 }
