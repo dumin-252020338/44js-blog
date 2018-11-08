@@ -98,9 +98,33 @@ exports.login = async (ctx) =>{
                 back: "即将返回登录页面"
             })
         }else{
+            ctx.cookies.set('username', username, {
+                domain: 'localhost',
+                path: '/',
+                maxAge: 1000*60*60,
+                httpOnly: false,//前端浏览器是否能访问到
+                overwrite: false,
+                signed: true
+            })
+
+            ctx.cookies.set('uid', data[0]._id, {
+                domain: 'localhost',
+                path: '/',
+                maxAge: 1000*60*60,
+                httpOnly: false,//前端浏览器是否能访问到
+                overwrite: false,
+                signed: true
+            })
+            
+            ctx.session = {
+                username: username,
+                uid: data[0]._id
+            }
+
             await ctx.render('success', {
                 status: "登录成功",
-                back: "即将跳转个人中心"
+                back: "即将跳转个人中心",
+                session: ctx.session
             })
         }
     })
@@ -110,4 +134,33 @@ exports.login = async (ctx) =>{
             back: "即将返回登录页面"
         })
     })
+}
+
+//保持用户登录
+exports.keepLogin = async (ctx, next) => {
+    if (ctx.session.isNew) {//判断session是否为新值 ，为新值则用户没有登陆
+        // user has not logged in
+        if(ctx.cookies.get('username')){
+            ctx.session = {
+               username : ctx.cookies.get('username'),
+               uid : ctx.cookies.get('uid')
+        }
+      } else {//session值不是新值，则用户已经登陆过
+        // user has already logged in
+      }
+    }
+    await next()
+}
+
+//用户退出的中间件
+exports.logout = async (ctx) =>{
+    ctx.session = null
+    ctx.cookies.set('username', null, {
+        maxAge: 0
+    })
+    ctx.cookies.set('uid', null, {
+        maxAge: 0
+    })
+    ctx.redirect('/')
+    
 }

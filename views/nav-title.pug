@@ -12,7 +12,17 @@ div(id="nav")
             a(href="") 编程语言
         li
             a(href="") 发表文章
-        li
-            a(href="http://localhost:3000/user/regist") 注册
-        li
-            a(href="http://localhost:3000/user/login") 登录
+div(id='rightBtn')
+    if session && !session.isNew
+        div(class='user-logout')
+            div(class='user')
+                a(href="http://localhost:3000") 个人中心
+            div(class='logout') 
+                a(href="http://localhost:3000/user/logout") 退出
+    else 
+        div(class='log-reg')
+            div(class='log')
+                a(href="http://localhost:3000/user/login") 登录
+            div(class='reg') 
+                a(href="http://localhost:3000/user/regist") 注册            
+        

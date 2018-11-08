@@ -45,3 +45,54 @@
     div#nav ul li:hover a {
         color: red;
     }
+    div#rightBtn{
+        position: absolute;
+        top:40px;
+        right:0px;
+        width: 200px;
+        font-size: 18px;
+    }
+    /* 用户注册登录按钮 */
+    div#rightBtn .log-reg{
+        /* display: none; */
+    }
+    div#rightBtn .log:hover{
+        background-color: #bef4a2;
+    }
+    div#rightBtn .reg:hover{
+        background-color: #bef4a2;
+    }
+    div#rightBtn .log:hover a{        
+        color: red;
+    }
+    div#rightBtn .reg:hover a{
+        color: red;
+    }
+    div#rightBtn .log-reg .log, .reg{
+        display: inline-block;
+        width: 100px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    /* 个人中心、退出按钮 */
+    div#rightBtn .user-logout{
+        /* display: none; */
+    }
+    div#rightBtn .user:hover{
+        background-color: #bef4a2;
+    }
+    div#rightBtn .logout:hover{
+        background-color: #bef4a2;
+    }
+    div#rightBtn .user:hover a{        
+        color: red;
+    }
+    div#rightBtn .logout:hover a{
+        color: red;
+    }
+    div#rightBtn .user-logout .user, .logout{
+        display: inline-block;
+        width: 100px;
+        border-radius: 20px;
+        text-align: center;
+    }
