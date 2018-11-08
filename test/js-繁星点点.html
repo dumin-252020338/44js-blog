@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>44js-意愿</title>
+    <style>
+        body{
+            background-color:#000;
+        }
+        p{
+            display:inline-block;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+    </div>
+</body>
+    <script>
+        let {random, floor, max, min} = Math
+        //创建构造函数
+        let fn = function (color, t, l, x, y){
+            this.color = color,
+            this.top = t;
+            this.left = l;
+        }
+        fn.prototype = {
+            //生成随机颜色
+            rgba: function (){
+                return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", 1)"
+            },
+            //随机盒子top
+            topPos: function (){
+                return floor(random() * 800 + 10)
+            },
+            //随机盒子left
+            leftPos: function (){
+                return floor(random() * 1800 + 10)
+            }
+        }
+        //生成50个p标签
+        for(let i=0; i<50; i++){
+            document.body.innerHTML += "<p></p>";
+        }
+        let timer
+        
+        timer = function(){
+            let arr = (new Array(50)).fill(new fn())//创建一个长度为50的数组，每一项都是一个实例化的对象
+            let p = document.getElementsByTagName("p")
+            for(let i=0,len=arr.length; i<len; i++){
+                p[i].style.background = arr[i].rgba();
+                p[i].style.top = arr[i].topPos() +'px';
+                p[i].style.left = arr[i].leftPos() +'px';
+            }
+        }
+        setInterval(timer,30)
+    </script>
+</html>
