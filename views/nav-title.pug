@@ -10,8 +10,11 @@ div(id="nav")
             a(href="") 游戏开发
         li
             a(href="") 编程语言
-        li
-            a(href="") 发表文章
+        li(class='article-send')
+            if session && !session.isNew
+                a(href="http://localhost:3000/user/article" class='no-f5') 发表文章
+            else 
+                a(href="http://localhost:3000/user/login") 发表文章
 div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')

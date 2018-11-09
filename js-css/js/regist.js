@@ -1,19 +1,4 @@
 
-// layui.define(['layer', 'form'], function(exports){
-//     var layer = layui.layer
-//     ,form = layui.form;
-    
-//     layer.msg('Hello World');
-    
-//     exports('index', {}); //注意，这里是模块输出的核心，模块名必须和use时的模块名一致
-//   });    
-
-// layui.use(["layer", "form"], function () {
-//     var layer = layui.layer,
-//         form = layui.form;
-//         layer.msg('hello');
-    // 如果只加载一个模块，可以不填数组。如：layui.use('form')
-
     let user = document.querySelector('.user input')
     let phone = document.querySelector('.phone input')
     let pwd = document.querySelector('.pwd input')
@@ -97,26 +82,19 @@
         }
     }
     //提交按钮
-    console.log(btn)
     btn.onclick = function () {
         if (uPattern.test(userValue) && phone.style.color === 'red' && pwd.style.color === 'red' && pwds.style.color === 'red' && email.style.color === 'red') {
-            console.log(111)
+            
             let allStr = '';
             allStr += `?phone=${phId}&user=${userValue}&pwd=${pwdValue}&email=${emailValue}`;
-
-            console.log(allStr)
+        
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "https://localhost:3001" + allStr);
-            // console.log('123')
             xhr.send()
             xhr.onload = function () {
-                console.log(2)
-                console.log(xhr.readyState)
                 if (xhr.readyState !== 4) return;
                 if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                    console.log(JSON.parse(xhr.responseText))
                     const msg = JSON.parse(xhr.responseText)
-                    alert(msg.msg)
                 }
             }
 
@@ -125,7 +103,5 @@
         } else {
             btn.innerHTML = "注册失败";
             btn.style.backgroundColor = "red"
-            console.log(222)
         }
     }
-// });

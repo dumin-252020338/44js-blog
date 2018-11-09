@@ -25,4 +25,7 @@ router.get("/user/logout", user.logout)
 //用户注册
 router.post("/user/regist", user.regist)
 
+//发表评论
+router.get("/user/article", user.article)
+
 module.exports = router

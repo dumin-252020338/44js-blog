@@ -117,7 +117,7 @@ exports.login = async (ctx) =>{
             }
             await ctx.render('success', {
                 status: "登录成功",
-                back: "即将跳转个人中心",
+                back: "即将跳转发表评论",
                 session: ctx.session
             })
         }
@@ -157,4 +157,11 @@ exports.logout = async (ctx) =>{
     })
     ctx.redirect('/')
     
+}
+
+//发表评论
+exports.article = async (ctx) =>{
+    await ctx.render('article', {
+        session: ctx.session
+    })
 }

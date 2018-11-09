@@ -53,9 +53,6 @@
         font-size: 18px;
     }
     /* 用户注册登录按钮 */
-    div#rightBtn .log-reg{
-        /* display: none; */
-    }
     div#rightBtn .log:hover{
         background-color: #bef4a2;
     }
@@ -75,9 +72,6 @@
         text-align: center;
     }
     /* 个人中心、退出按钮 */
-    div#rightBtn .user-logout{
-        /* display: none; */
-    }
     div#rightBtn .user:hover{
         background-color: #bef4a2;
     }

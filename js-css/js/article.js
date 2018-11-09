@@ -29,10 +29,12 @@
             }
             let li = document.createElement('li')
             let span = document.createElement('span')
-            span.innerHTML = '评论时间:' + getNowFormatDate()
+            span.innerHTML = '评论时间：' + getNowFormatDate()
             li.innerHTML = inputValue
             li.appendChild(span)
             ul.appendChild(li)
             input.innerHTML = ""
         }
     }
+
+    
