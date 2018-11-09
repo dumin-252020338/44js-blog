@@ -13,18 +13,22 @@ const app = new Koa
 
 //注册日志模块
 app.use(logger())
+
 //配置session模块
-app.keys = ['some secret hurr'];//cookie的签名
+app.keys = ['dumin-252020338']
 const config = {
-  key: 'dumin-252020338',
-  maxAge: 60*60*1000,//cookie的过期时间
-  overwrite: true,//是否可以被写入，can overwrite or not (default true)
-  httpOnly: true,//true表示只有服务器端可以获取cookie
-  signed: true,//默认 签名
-  rolling: false,//在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false） 【需要修改】
-  renew: false, //(boolean) renew session when session is nearly expired      【需要修改】 
+  key: 'koa:session', /** (string) cookie key (default is koa:sess) */
+  /** 'session' will result in a cookie that expires when session/browser is closed */
+  /** Warning: If a session cookie is stolen, this cookie will never expire */
+  maxAge: 1000*60*60,/** (number || 'session') maxAge in ms (default is 1 days) */
+  overwrite: true, /** (boolean) can overwrite or not (default true) */
+  httpOnly: true, /** (boolean) httpOnly or not (default true) */
+  signed: true, /** (boolean) signed or not (default true) */
+  rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
+  renew: false, /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
 }
-app.use(session(config, app));
+app.use(session(config, app))
+
 //配置koa-body 处理post请求的数据
 app.use(body())
 app.use(cors())
@@ -36,9 +40,6 @@ app.use(static(join(__dirname, "js-css")))
 app.use(views(join(__dirname, 'views'), {
   extension: "pug"  //设置为pug模板
 }))
-
-
-
 
 //注册路由信息
 app
