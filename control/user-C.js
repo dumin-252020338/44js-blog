@@ -94,7 +94,7 @@ exports.login = async (ctx) =>{
             })
         }else{
             ctx.cookies.set('username', username, {
-                domain: 'localhost',
+                domain: 'http://106.14.118.126:6868',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到
@@ -103,7 +103,7 @@ exports.login = async (ctx) =>{
             })
 
             ctx.cookies.set('uid', data[0]._id, {
-                domain: 'localhost',
+                domain: 'http://106.14.118.126:6868',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到
