@@ -10,22 +10,19 @@ div(id="nav")
             a(href="") 游戏开发
         li
             a(href="") 编程语言
-        li(class='article-send')
-            if session && !session.isNew
-                a(href="http://106.14.118.126:6868/user/article" class='no-f5') 发表文章
-            else 
-                a(href="http://106.14.118.126:6868/user/login") 发表文章
 div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')
+            div(class='article-send')
+                a(href="http://localhost:3000/user/article" class='no-f5') 发表文章
             div(class='user')
-                a(href="http://106.14.118.126:6868/") 个人中心
+                a(href="http://localhost:3000") 个人中心
             div(class='logout') 
-                a(href="http://106.14.118.126:6868/user/logout") 退出
+                a(href="http://localhost:3000/user/logout") 退出
     else 
         div(class='log-reg')
             div(class='log')
-                a(href="http://106.14.118.126:6868/user/login") 登录
+                a(href="http://localhost:3000/user/login") 登录
             div(class='reg') 
-                a(href="http://106.14.118.126:6868/user/regist") 注册            
+                a(href="http://localhost:3000/user/regist") 注册            
         

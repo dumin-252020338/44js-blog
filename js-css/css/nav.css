@@ -2,20 +2,13 @@
         margin: 0;
         padding: 0;
     }
-
-    body {
-        background: #ccc;
-    }
-
     li {
         list-style: none;
     }
-
     a {
         text-decoration: none;
         color: #fff;
     }
-
     div#nav {
         height: 60px;
         margin: 20px auto;
@@ -40,30 +33,25 @@
     div#nav ul li:hover {
         background: skyblue;
         border-radius: 20px;
-    }
+        animation:liRun .5s;
+        font-size: 22px;
 
-    div#nav ul li:hover a {
-        color: red;
+    }
+    div#nav ul li:hover a{
+        font-size: 22px;
+        color:red;
     }
     div#rightBtn{
         position: absolute;
         top:40px;
         right:0px;
-        width: 200px;
+        width: 300px;
         font-size: 18px;
     }
     /* 用户注册登录按钮 */
-    div#rightBtn .log:hover{
-        background-color: #bef4a2;
-    }
-    div#rightBtn .reg:hover{
-        background-color: #bef4a2;
-    }
-    div#rightBtn .log:hover a{        
-        color: red;
-    }
-    div#rightBtn .reg:hover a{
-        color: red;
+    div#rightBtn .log:hover, div#rightBtn .reg:hover{
+        background-color: #6cdd22;
+        animation:run .8s;
     }
     div#rightBtn .log-reg .log, .reg{
         display: inline-block;
@@ -72,21 +60,22 @@
         text-align: center;
     }
     /* 个人中心、退出按钮 */
-    div#rightBtn .user:hover{
-        background-color: #bef4a2;
+    div#rightBtn .user:hover, div#rightBtn .logout:hover, div#rightBtn .user-logout .article-send:hover{
+        background-color: #6cdd22;
+        animation:run .8s; 
+        font-size: 22px;
     }
-    div#rightBtn .logout:hover{
-        background-color: #bef4a2;
-    }
-    div#rightBtn .user:hover a{        
-        color: red;
-    }
-    div#rightBtn .logout:hover a{
-        color: red;
-    }
-    div#rightBtn .user-logout .user, .logout{
+    div#rightBtn .user-logout .user, .logout, .article-send{
         display: inline-block;
         width: 100px;
         border-radius: 20px;
         text-align: center;
+    }
+    @keyframes run{
+        from{background-color: #000;}
+        to{background-color: #6cdd22; font-size: 22px;}
+    }
+    @keyframes liRun{
+        from{background-color: #000;}
+        to{background-color: skyblue; font-size: 22px;}
     }

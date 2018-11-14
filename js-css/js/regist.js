@@ -38,7 +38,7 @@
     pwd.onblur = function () {
         let //密码强度正则，    
             pPattern = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/;
-        pwdValue = pwd.value;
+            pwdValue = pwd.value;
 
         if (!pPattern.test(pwdValue)) {
             // layer.msg('密码不符合要求'); 
@@ -78,7 +78,6 @@
             // layer.msg('邮箱不符合要求'); 
         } else {
             email.style.color = 'red';
-
         }
     }
     //提交按钮
@@ -89,7 +88,7 @@
             allStr += `?phone=${phId}&user=${userValue}&pwd=${pwdValue}&email=${emailValue}`;
         
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://localhost:3001" + allStr);
+            xhr.open("GET", "https://localhost:3000" + allStr);
             xhr.send()
             xhr.onload = function () {
                 if (xhr.readyState !== 4) return;
