@@ -1,55 +1,56 @@
 
-        *{
-            margin: 0px;
-            padding: 0px;
-        }
-        body{
-            text-align: center;
-        }
-        form#regist, form#login{
-            display: inline-block;
-            border: 1px solid #9aab94;
-            margin: auto;
-        }
-        form{
-            display: none;
-            background-color: #fff;
-            box-shadow:5px 5px 5px #888888;
-            text-align: center;
-            border-radius: 10px;
-        }
-        form .layui-form-item{
-            width: 400px;
-            height: 40px;
-            margin: 0px auto;
-            padding:15px 0px;
-            text-align: center;
-            line-height: 40px;
-        }
-        form .layui-form-item label{
-            width: 60px;
-            height: 60px;
-        }
-        form .layui-form-item div{
-            display:inline-block;
-        }
-        form .layui-form-item input{
-            width:250px ;
-            height: 25px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        form .layui-form-item p{
-            /* float: right; */
-            position: relative;
-            top: -10px;
-            left:120px;
-            margin: 0;
-            font-size: 14px;
-            text-align: left;
-        }
-        form .layui-form-item .layui-btn{
-            width: 100px;
-            height: 30px;
-            border-radius: 1px;
-        }
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    text-align: center;
+    background-color: rgb(155, 128, 112);
+}
+form#regist, form#login{
+    display: inline-block;
+    border: 1px solid #9aab94;
+    margin: auto;
+}
+form{
+    display: none;
+    background-color: #fff;
+    box-shadow:5px 5px 5px #888888;
+    text-align: center;
+    border-radius: 10px;
+}
+form .layui-form-item{
+    width: 400px;
+    height: 40px;
+    margin: 0px auto;
+    padding:15px 0px;
+    text-align: center;
+    line-height: 40px;
+}
+form .layui-form-item label{
+    width: 60px;
+    height: 60px;
+}
+form .layui-form-item div{
+    display:inline-block;
+}
+form .layui-form-item input{
+    width:250px ;
+    height: 25px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+form .layui-form-item p{
+    /* float: right; */
+    position: relative;
+    top: -10px;
+    left:120px;
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+}
+form .layui-form-item .layui-btn{
+    width: 100px;
+    height: 30px;
+    border-radius: 1px;
+}

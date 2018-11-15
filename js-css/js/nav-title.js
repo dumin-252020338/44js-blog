@@ -1,5 +1,3 @@
-const articleSend = document.querySelector('.article-send')
-// const a = articleSend.getElementsByTagName('.no-f5')
 const li = document.querySelector('ul li')
 const div = document.querySelector('#rightBtn div')
 
