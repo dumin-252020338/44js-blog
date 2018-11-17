@@ -2,6 +2,7 @@
         margin: 0;
         padding: 0;
     }
+    body{background-color: rgb(155, 128, 112);}
     li {
         list-style: none;
     }
@@ -43,7 +44,7 @@
     }
     div#rightBtn{
         position: absolute;
-        top:40px;
+        top:20px;
         right:0px;
         width: 300px;
         font-size: 18px;
@@ -51,6 +52,7 @@
     /* 用户注册登录按钮 */
     div#rightBtn .log:hover, div#rightBtn .reg:hover{
         background-color: #6cdd22;
+        font-size: 22px;
         animation:run .8s;
     }
     div#rightBtn .log-reg .log, .reg{
