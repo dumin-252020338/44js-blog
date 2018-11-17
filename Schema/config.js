@@ -11,7 +11,7 @@ db.on('error', ()=>{
 })
 //
 db.on('open', ()=>{
-    console.log('blogproject数据库连接成功')
+    console.log('数据库连接成功')
 })
 module.exports = {
     db,
