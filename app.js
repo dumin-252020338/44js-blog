@@ -18,13 +18,13 @@ app.use(logger())
 //配置session模块
 app.keys = ['dumin-252020338']
 const config = {
-  key: 'koa:session',
+  key: 'koa:session', 
   maxAge: 1000*60*60,
   overwrite: true, 
-  httpOnly: true,
-  signed: true,
+  httpOnly: true, 
+  signed: true, 
   rolling: false, 
-  renew: false,
+  renew: false, 
 }
 app.use(session(config, app))
 
