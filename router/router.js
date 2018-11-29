@@ -28,4 +28,7 @@ router.post("/user/regist", user.regist)
 //发表评论
 router.get("/user/article", user.article)
 
+//轮播图
+router.get("/autoPic",user.autoPic)
+
 module.exports = router

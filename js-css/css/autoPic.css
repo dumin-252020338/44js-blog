@@ -1,0 +1,119 @@
+#wrap{
+    position: relative;
+    width: 640px;
+    height: 460px;
+    margin: 50px auto;
+    background-color: #91ffcd;
+    border-radius: 20px;
+}
+#wrap div.list-p{
+    position: relative;
+}
+#wrap p{
+    display:none;
+    position: absolute;
+    left:50%;
+    margin-left: -25px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+}
+#wrap .list-img{
+    position: absolute;
+    top:50px;
+}
+#wrap .list-img div{
+    position: relative;
+    width: 460px;
+    height: 600px;
+}
+#wrap .list-img .img1{
+    background-color: rgb(238, 118, 118);
+}
+#wrap .list-img .img2{
+    background-color: rgb(51, 33, 214);
+}
+#wrap .list-img .img3{
+    background-color: rgb(125, 54, 172);
+}
+#wrap .list-img .img4{
+    background-color: rgb(54, 169, 214);
+}
+#wrap .list-img .img5{
+    background-color: rgb(188, 233, 39);
+}
+#wrap li{
+    display: none;
+    position: absolute;
+}
+#wrap .active{
+    display: block;
+}
+#wrap .active-dot{
+    display: inline-block;
+    background-color:#f10;
+}
+#wrap .list-span span{
+    display: none;
+    position: absolute;
+    top:420px;
+    left:260px;
+    font-size: 30px;
+}
+#wrap .btn{
+    display: none;
+    position: absolute;
+    top:200px;
+    width: 50px;
+    height: 50px;
+    background-color: #b4b191;
+    font-size: 20px;
+    color: #fff2f2;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+#wrap .right{
+    right:0px;
+}
+#wrap .pat{
+    position: absolute;
+    top:460px;
+    left:200px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px #361f34;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#wrap .cir-btn{
+    left:320px;
+}
+#wrap .dot{
+    position: absolute;
+    top: 420px;
+    left: 220px;
+    width: 180px;
+    height: 30px;
+    background-color:rgb(165, 162, 162);
+    opacity: 0.5;
+    text-align:center;
+    border-radius: 10px;
+    transition: all 0.8s;
+}
+#wrap .dot:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+#wrap span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+}

@@ -1,0 +1,41 @@
+doctype html
+html
+    head
+        title 44-js
+        style
+            include ../js-css/css/nav.css
+            include ../js-css/css/autoPic.css
+    body
+        include nav-title.pug
+        div(id="wrap")
+            div(class="list-p")
+                p(class="active") 1/5
+                p 2/5
+                p 3/5
+                p 4/5
+                p 5/5
+            ul(class="list-img")
+                li(class="active")
+                    div(class='img1')
+                li
+                    div(class='img2')
+                li
+                    div(class='img3')
+                li
+                    div(class='img4')
+                li
+                    div(class='img5')
+            div(class="dot")
+                span(class="active-dot")
+                span
+                span
+                span
+                span
+            div(class="btn right") &gt;
+            div(class="btn left") &lt;
+            div(class="pat nor-btn col") 正常播放
+            div(class="pat cir-btn") 循环播放
+        
+    script
+        include ../js-css/js/nav-title.js
+        include ../js-css/js/autoPic.js

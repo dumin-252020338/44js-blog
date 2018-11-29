@@ -165,3 +165,15 @@ exports.article = async (ctx) =>{
         session: ctx.session
     })
 }
+
+//轮播图
+exports.autoPic = async (ctx) => {
+    // const imgSrc = document.querySelectorAll("#wrap img")
+    // console.log(imgSrc)
+    // for(let i=1; len<imgSrc.length, i<len; i++){
+    //     imgSrc.src = "../js-css/img/0 "+ i +".jpg"
+    // }
+    await ctx.render('autoPic'),{
+        // src: imgSrc
+    }
+}
