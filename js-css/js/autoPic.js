@@ -1,7 +1,7 @@
 let wrap = document.getElementById("wrap"),
-            listp =document.getElementsByTagName('p'),
-            listimg =document.getElementsByTagName('li'),
-            listspan =document.getElementsByTagName('span'),
+            listp =document.querySelectorAll('.list-p p'),
+            listimg =document.querySelectorAll('.list-img li'),
+            listspan =document.querySelectorAll('.dot span'),
             right =document.getElementsByClassName('right')[0],
             left =document.getElementsByClassName('left')[0],
             index = 0,
@@ -13,13 +13,13 @@ let wrap = document.getElementById("wrap"),
         //样式消失
         function none(){
             listp[index].className ='';
-            listimg[index].className ='';
+            listimg[index].classList ='';
             listspan[index].className ='';
         }
         //样式出现
         function active(){
             listp[index].className ='active';
-            listimg[index].className ='active';
+            listimg[index].classList ='active';
             listspan[index].className ='active-dot';
         }  
         //正常播放
@@ -60,14 +60,14 @@ let wrap = document.getElementById("wrap"),
 
                 listspan[i].className ='active-dot';
                 listp[i].className ='active';
-                listimg[i].className ='active';
+                listimg[i].classList ='active';
 
                 index++;
             }
         }
         //打开自动轮播
         let timer;
-        autoRun();
+        // autoRun();
         function autoRun(){
             timer = setInterval(function(){
                 none()
@@ -79,11 +79,11 @@ let wrap = document.getElementById("wrap"),
         },1000)    
         }
         //鼠标离开继续自动轮播
-        wrap.onmouseleave = function(){
+        wrap.onmouseenter = function(){
             autoRun(); 
         }
         //鼠标进入停止自动轮播
-        wrap.onmouseenter = function(){
+        wrap.onmouseleave = function(){
             clearInterval(timer)
         }
         function cirRun() {
