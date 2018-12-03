@@ -5,8 +5,11 @@ html
         style
             include ../js-css/css/nav.css
             include ../js-css/css/autoPic.css
+            include ../js-css/css/star.css
+
     body
         include nav-title.pug
+        div(id="con")
         div(id="wrap")
             div(class="list-p")
                 p(class="active") 1/5
@@ -16,15 +19,15 @@ html
                 p 5/5
             ul(class="list-img")
                 li(class="active li1")
-                    div(class='img1') 1
+                    div 1
                 li(class="li2")
-                    div(class='img2') 2
+                    div 2
                 li(class="li3")
-                    div(class='img3') 3
+                    div 3
                 li(class="li4")
-                    div(class='img4') 4
+                    div 4
                 li(class="li5")
-                    div(class='img5') 5
+                    div 5
             div(class="dot")
                 span(class="active-dot")
                 span
@@ -39,3 +42,4 @@ html
     script
         include ../js-css/js/nav-title.js
         include ../js-css/js/autoPic.js
+        include ../js-css/js/star.js

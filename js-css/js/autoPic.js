@@ -9,7 +9,6 @@ let wrap = document.getElementById("wrap"),
             norbtn =document.getElementsByClassName('nor-btn')[0],
             cirbtn =document.getElementsByClassName('cir-btn')[0];
             bgc = "#f55";
-
         //样式消失
         function none(){
             listp[index].className ='';
@@ -21,9 +20,15 @@ let wrap = document.getElementById("wrap"),
             listp[index].className ='active';
             listimg[index].classList ='active';
             listspan[index].className ='active-dot';
+            //随机颜色
+            const {floor, random} = Math;
+            function rgba(){
+                return "rgba("+floor(random()*225+1)+", "+floor(random()*225+1)+", "+floor(random()*225+1)+", "+random().toFixed(1)+")"
+            }
+            listimg[index].style.backgroundColor = rgba();
         }  
         //正常播放
-        norbtn.onclick = function () {
+        norbtn.onclick = function (){
             norbtn.style.backgroundColor ="#f55";
             cirbtn.style.backgroundColor ='';
             btn[0].style.cssText = "display:inline";
@@ -66,10 +71,10 @@ let wrap = document.getElementById("wrap"),
             }
         }
         //打开自动轮播
-        let timer;
+        let autoPicTimer;
         // autoRun();
         function autoRun(){
-            timer = setInterval(function(){
+            autoPicTimer = setInterval(function(){
                 none()
                 index++;
                 if(index > 4 ){
@@ -79,12 +84,12 @@ let wrap = document.getElementById("wrap"),
         },1000)    
         }
         //鼠标离开继续自动轮播
-        wrap.onmouseenter = function(){
+        wrap.onmouseleave = function(){
             autoRun(); 
         }
         //鼠标进入停止自动轮播
-        wrap.onmouseleave = function(){
-            clearInterval(timer)
+        wrap.onmouseenter= function(){
+            clearInterval(autoPicTimer)
         }
         function cirRun() {
             norbtn.style.backgroundColor ='';
