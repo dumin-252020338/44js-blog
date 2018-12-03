@@ -2,14 +2,19 @@ div(id="nav")
     ul(class="layui-nav")
         li(class="layui-nav-item")
             a(href="http://localhost:3000") 首页
-        li(class="layui-nav-item")
+            span 
+        li
             a(href="http://localhost:3000/autoPic") 轮播
-        li(class="layui-nav-item")
+            //- span
+        li
             a(href="") 移动
-        li(class="layui-nav-item")
+            //- span
+        li
             a(href="") 游戏
-        li(class="layui-nav-item")
+            //- span
+        li
             a(href="") 编程
+            //- span
 div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')
