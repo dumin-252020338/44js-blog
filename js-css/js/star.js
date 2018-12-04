@@ -28,9 +28,9 @@
     timer = function(){
         let arr = (new Array(100)).fill(new fn())//创建一个长度为50的数组，每一项都是一个实例化的对象
         let p = document.querySelectorAll("p")
-        console.log(p)
+        // console.log(p)
         for(let i=0,len=arr.length; i<len; i++){
-            console.log(p[i])
+            // console.log(p[i])
             p[i].style.background = arr[i].rgba();
             p[i].style.top = arr[i].topPos() +'px';
             p[i].style.left = arr[i].leftPos() +'px';

@@ -6,32 +6,32 @@ textarea, p, blockquote, th, td {
     padding: 0;
 }
 body{background-color: rgb(155, 128, 112);}
+a{
+    color:#fff;
+    text-decoration: blink;
+}
 li {
     list-style: none;
 }
-a {
-    text-decoration: none;
-    color: #fff;
-}
 div#nav {
-    height: 60px;
-    margin: 0px auto;
+    height:40px;
     background: #000;
-    text-align: center
+    /* margin:0px auto; */
+    /* text-align: center; */
+    line-height:40px;
 }
-div#nav ul {
-    display: inline-block;
-    height: 30px;
-    margin: auto;
-    line-height: 30px;
-    padding: 15px 0;
-}
-
-div#nav ul li {
-    float: left;
-    font-size: 18px;
+div#nav ul{
+    width:500px;
+    height:60px;
     text-align: center;
-    padding: 0px 30px;
+    margin:0px auto;
+}
+div#nav ul li {
+    width:100px;
+    float:left;
+}
+div#nav ul li a{
+    font-size: 18px;
 }
 
 div#nav ul li:hover {
@@ -47,10 +47,11 @@ div#nav ul li:hover a{
 }
 div#rightBtn{
     position: absolute;
-    top:20px;
+    top:5px;
     right:0px;
     width: 300px;
     font-size: 18px;
+    color:#fff;
 }
 /* 用户注册登录按钮 */
 div#rightBtn .log:hover, div#rightBtn .reg:hover{
@@ -82,5 +83,5 @@ div#rightBtn .user-logout .user, .logout, .article-send{
 }
 @keyframes liRun{
     from{background-color: #000;}
-    to{background-color: skyblue; font-size: 22px;}
+    to{background-color: skyblue; font-size: 20px;}
 }

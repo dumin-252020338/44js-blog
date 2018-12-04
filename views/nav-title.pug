@@ -1,15 +1,15 @@
 div(id="nav")
-    ul
-        li
+    ul(class="layui-nav")
+        li(class="layui-nav-item")
             a(href="http://localhost:3000") 首页
-        li
-            a(href="http://localhost:3000/autoPic") 轮播图
-        li
-            a(href="") 移动开发
-        li
-            a(href="") 游戏开发
-        li
-            a(href="") 编程语言
+        li(class="layui-nav-item")
+            a(href="http://localhost:3000/autoPic") 轮播
+        li(class="layui-nav-item")
+            a(href="") 移动
+        li(class="layui-nav-item")
+            a(href="") 游戏
+        li(class="layui-nav-item")
+            a(href="") 编程
 div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')
