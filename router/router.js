@@ -31,4 +31,7 @@ router.get("/user/article", user.article)
 //轮播图
 router.get("/autoPic",user.autoPic)
 
+//文章pug
+router.get("/articlePug", user.articlePug)
+
 module.exports = router

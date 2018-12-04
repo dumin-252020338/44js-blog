@@ -177,3 +177,10 @@ exports.autoPic = async (ctx) => {
         // src: imgSrc
     }
 }
+
+//文章
+exports.articlePug = async(ctx) =>{
+    await ctx.render('layuiArticle'),{
+        // src: imgSrc
+    }
+}
