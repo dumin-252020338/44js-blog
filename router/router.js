@@ -25,13 +25,18 @@ router.get("/user/logout", user.logout)
 //用户注册
 router.post("/user/regist", user.regist)
 
-//发表评论
-router.get("/user/article", user.article)
-
 //轮播图
-router.get("/autoPic",user.autoPic)
+router.get("/user/autoPic", user.keepLogin, async (ctx) => {
+    await ctx.render('autoPic', {
+        session: ctx.session
+    })
+})
 
-//文章pug
-router.get("/articlePug", user.articlePug)
+//发表评论
+router.get("/user/layuiArticle", user.keepLogin, async(ctx)=>{
+    await ctx.render("layuiArticle", {
+        session: ctx.session
+    })
+})
 
 module.exports = router

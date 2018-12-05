@@ -68,7 +68,7 @@ exports.regist = async (ctx) =>{
 exports.login = async (ctx) =>{
     //用户登陆 post 发过来的数据
     const user = ctx.request.body
-    console.log(user)
+    // console.log(user)
     const username = user.username
     const password = user.password 
     
@@ -79,7 +79,7 @@ exports.login = async (ctx) =>{
                 return reject('用户名不存在')
             }
             //把用户传过来的密码，加密后跟数据库的比对
-            console.log(data[0])
+            // console.log(data[0])
             if(data[0].password === crypto(password)){
                 return resolve(data)
             }
@@ -94,7 +94,7 @@ exports.login = async (ctx) =>{
             })
         }else{
             ctx.cookies.set('username', username, {
-                domain: 'http://106.14.118.126:6868',
+                domain: 'http://localhost:3000',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到
@@ -103,7 +103,7 @@ exports.login = async (ctx) =>{
             })
 
             ctx.cookies.set('uid', data[0]._id, {
-                domain: 'http://106.14.118.126:6868',
+                domain: 'http://localhost:3000',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到
@@ -117,7 +117,7 @@ exports.login = async (ctx) =>{
             }
             await ctx.render('success', {
                 status: "登录成功",
-                back: "即将跳转发表评论",
+                back: "即将跳转到发表文章页",
                 session: ctx.session
             })
         }
@@ -157,30 +157,4 @@ exports.logout = async (ctx) =>{
     })
     ctx.redirect('/')
     
-}
-
-//发表评论
-exports.article = async (ctx) =>{
-    await ctx.render('article', {
-        session: ctx.session
-    })
-}
-
-//轮播图
-exports.autoPic = async (ctx) => {
-    // const imgSrc = document.querySelectorAll("#wrap img")
-    // console.log(imgSrc)
-    // for(let i=1; len<imgSrc.length, i<len; i++){
-    //     imgSrc.src = "../js-css/img/0 "+ i +".jpg"
-    // }
-    await ctx.render('autoPic'),{
-        // src: imgSrc
-    }
-}
-
-//文章
-exports.articlePug = async(ctx) =>{
-    await ctx.render('layuiArticle'),{
-        // src: imgSrc
-    }
 }

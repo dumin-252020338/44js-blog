@@ -8,21 +8,21 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     style
       include ../js-css/css/nav.css
-      //- include ../js-css/layui/css/layui.css
     style.
-      fieldset{width:500px;  font-size:18px; }
-      fieldset form{text-align:center;}
-      fieldset input{width:300px; height:30px; }
-      fieldset select{width:304px; height:34px; font-size:18px; }
-      fieldset textarea{width:300px; height:200px; font-size:18px; }
-      fieldset div{padding:10px 0px}
-  body
+      fieldset{ width:500px;  font-size:18px; margin:10px auto; }
+      fieldset form{ text-align:center;}
+      fieldset input{ width:300px; height:30px; }
+      fieldset select{ width:304px; height:34px; font-size:18px; cursor:pointer; }
+      fieldset textarea{ width:300px; height:200px; font-size:18px; }
+      fieldset div{ padding:10px 0px}
+      fieldset button{width:100px; height:30px; cursor:pointer; }
+
     include nav-title.pug
     div(id="con")
 
-    fieldset(style='margin-top: 50px;')
+    fieldset
       legend 发表文章
-      form(action='')
+      form(action='http://localhost:3000/user/articleDate', method:'post')
         div
           label 文章标题
             input(type='text', name='title', autocomplete='off', placeholder='请输入标题')
@@ -39,23 +39,23 @@ html
               option(value='3') Vue
               option(value='4') 后端
         div
-          label 文章内容
-            textarea(placeholder='请输入内容')
+          label 
+            span 文章内容
+            textarea(placeholder='请输入内容', name="desc")
         div
-          button() 立即提交
-              button(type='reset') 重置
-    //- script(src='../js-css/layui/layui.js', charset='utf-8')
+          button 立即提交
+          button(type='reset') 重置
   script    
     include ../js-css/js/nav-title.js
     include ../js-css/js/star.js
-    include ../js-css/layui/layui.js
+    //- include ../js-css/layui/layui.js
     //- // 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的
-  script.
-    layui.use(['layer', 'form'], function(){
-    var layer = layui.layer
-    ,form = layui.form;
-    layer.msg('Hello World');
-    });
+  //- script.
+  //-   layui.use(['layer', 'form'], function(){
+  //-   var layer = layui.layer
+  //-   ,form = layui.form;
+  //-   layer.msg('Hello World');
+  //-   });
   //- script.
   //-   console.log(123)
   //-   console.log(window.layui.use)

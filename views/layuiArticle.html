@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>44js</title>
+    <meta name="yiyuan" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>    * {
+        margin: 0;
+        padding: 0;
+    }
+    body{background-color: rgb(155, 128, 112);}
+    li {
+        list-style: none;
+    }
+    a {
+        text-decoration: none;
+        color: #fff;
+    }
+    div#nav {
+        height: 60px;
+        margin: 0px auto;
+        background: #000;
+        text-align: center
+    }
+    div#nav ul {
+        position: relative;
+        display: inline-block;
+        height: 30px;
+        margin: auto;
+        line-height: 30px;
+        padding: 15px 0;
+    }
+    div#nav ul li {
+        float: left;
+        font-size: 18px;
+        text-align: center;
+        padding: 0px 30px;
+    }
+    div#nav ul li:hover {
+        background: skyblue;
+        border-radius: 20px;
+        animation:liRun .5s;
+        font-size: 22px;
+    }
+    div#nav ul li:hover a{
+        font-size: 18px;
+        color:red;
+    }
+    div#rightBtn{
+        position: absolute;
+        top:20px;
+        right:0px;
+        width: 300px;
+        font-size: 18px;
+    }
+    /* 用户注册登录按钮 */
+    div#rightBtn .log:hover, div#rightBtn .reg:hover{
+        background-color: #6cdd22;
+        font-size: 22px;
+        animation:run .8s;
+    }
+    div#rightBtn .log-reg .log, .reg{
+        display: inline-block;
+        width: 100px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    /* 个人中心、退出按钮 */
+    div#rightBtn .user:hover, div#rightBtn .logout:hover, div#rightBtn .user-logout .article-send:hover{
+        background-color: #6cdd22;
+        animation:run .8s; 
+        font-size: 22px;
+    }
+    div#rightBtn .user-logout .user, .logout, .article-send{
+        display: inline-block;
+        width: 100px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    @keyframes run{
+        from{background-color: #000;}
+        to{background-color: #6cdd22; font-size: 22px;}
+    }
+    @keyframes liRun{
+        from{background-color: #000;}
+        to{background-color: skyblue; font-size: 22px;}
+    }
+    /* 指针 */
+    div#nav span{
+        display: none;
+        width:0;
+        height:0;
+        border-width:10px 10px 0;
+        border-style:solid;
+        border-color:rgb(238, 84, 84) transparent transparent;/*灰 透明 透明 */
+        /* margin:10px auto; */
+        position:absolute;
+        top:45px;
+        left:38px;
+    }
+
+    </style>
+    <style>
+      fieldset{ width:500px;  font-size:18px; margin:10px auto; }
+      fieldset form{ text-align:center;}
+      fieldset input{ width:300px; height:30px; }
+      fieldset select{ width:304px; height:34px; font-size:18px; cursor:pointer; }
+      fieldset textarea{ width:300px; height:200px; font-size:18px; }
+      fieldset div{ padding:10px 0px}
+      fieldset button{width:100px; height:30px; cursor:pointer; }
+      
+    </style>
+    <div id="nav">
+      <ul class="layui-nav">
+        <li class="layui-nav-item"><a href="http://localhost:3000">首页</a><span> </span></li>
+        <li><a href="http://localhost:3000/user/autoPic">轮播</a></li>
+        <li><a href="http://localhost:3000/user/layuiArticle">移动</a></li>
+        <li><a href="">游戏</a></li>
+        <li><a href="">编程</a></li>
+      </ul>
+    </div>
+    <div id="rightBtn">
+      <div class="log-reg">
+        <div class="log"><a href="http://localhost:3000/user/login">登录</a></div>
+        <div class="reg"> <a href="http://localhost:3000/user/regist">注册            </a></div>
+      </div>
+    </div>
+    <div id="con"></div>
+    <fieldset>
+      <legend>发表文章</legend>
+      <form action="http://localhost:3000/user/articleDate" method:'post'>
+        <div>
+          <label>文章标题
+            <input type="text" name="title" autocomplete="off" placeholder="请输入标题">
+          </label>
+        </div>
+        <div>
+          <label>关键词语
+            <input type="text" name="username" placeholder="请输入" autocomplete="off">
+          </label>
+        </div>
+        <div>
+          <label>文章类型
+            <select name="interest">
+              <option value=""> </option>
+              <option value="0" selected="">前端</option>
+              <option value="1">React</option>
+              <option value="2">Angular </option>
+              <option value="3">Vue</option>
+              <option value="4">后端</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <label> <span>文章内容</span>
+            <textarea placeholder="请输入内容" name="desc"></textarea>
+          </label>
+        </div>
+        <div>
+          <button>立即提交</button>
+          <button type="reset">重置</button>
+        </div>
+      </form>
+    </fieldset>
+  </head>
+  <script>
+       const li = document.querySelectorAll('#nav ul li')
+const a = document.querySelectorAll('#nav ul li a')
+const span = document.querySelector('#nav ul li span')
+const div = document.querySelectorAll('#nav #rightBtn div')
+
+    for(let i=0; len=li.length, i<len; i++){
+        li[i].onmouseenter = function(){
+            span.style.display = "inline-block";
+            span.style.left = (38 + i*96)+'px';
+            span.style.top = "45px";
+        }
+        li[i].onmouseleave = function(){
+            span.style.cssText = "";
+        }
+    }
+    ;let {random, floor, max, min} = Math
+    //创建构造函数
+    let fn = function (color, t, l, x, y){
+        this.color = color,
+        this.top = t;
+        this.left = l;
+    }
+    fn.prototype = {
+        //生成随机颜色
+        rgba: function (){
+            return "rgba("+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", "+Math.floor(Math.random() *226)+", 1)"
+        },
+        //随机盒子top
+        topPos: function (){
+            return floor(random() * 800 + 5)
+        },
+        //随机盒子left
+        leftPos: function (){
+            return floor(random() * 1600 + 100)
+        }
+    }
+    //生成多个p标签
+    const star = document.querySelector('#con')
+    for(let i=0; i<100; i++){
+        star.innerHTML += "<p></p>";
+    }
+    let timer
+    timer = function(){
+        let arr = (new Array(100)).fill(new fn())//创建一个长度为50的数组，每一项都是一个实例化的对象
+        let p = document.querySelectorAll("p")
+        // console.log(p)
+        for(let i=0,len=arr.length; i<len; i++){
+            // console.log(p[i])
+            p[i].style.background = arr[i].rgba();
+            p[i].style.top = arr[i].topPos() +'px';
+            p[i].style.left = arr[i].leftPos() +'px';
+        }
+    }
+    setInterval(timer,100)
+  </script>
+</html>
