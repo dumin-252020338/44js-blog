@@ -8,46 +8,42 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     style
       include ../js-css/css/nav.css
-      include ../js-css/layui/css/layui.css
-
+      //- include ../js-css/layui/css/layui.css
+    style.
+      fieldset{width:500px;  font-size:18px; }
+      fieldset form{text-align:center;}
+      fieldset input{width:300px; height:30px; }
+      fieldset select{width:304px; height:34px; font-size:18px; }
+      fieldset textarea{width:300px; height:200px; font-size:18px; }
+      fieldset div{padding:10px 0px}
   body
     include nav-title.pug
     div(id="con")
 
-    fieldset.layui-elem-field.layui-field-title(style='margin-top: 50px;')
+    fieldset(style='margin-top: 50px;')
       legend 发表文章
-    form.layui-form.layui-form-pane(action='')
-      .layui-form-item
-        label.layui-form-label 文章标题
-        .layui-input-block
-          input.layui-input(type='text', name='title', autocomplete='off', placeholder='请输入标题')
-      .layui-form-item
-        label.layui-form-label 关键字
-        .layui-input-inline
-          input.layui-input(type='text', name='username', lay-verify='required', placeholder='请输入', autocomplete='off')
-      .layui-form-item
-        .layui-inline
-          label.layui-form-label 日期选择
-          .layui-input-block
-            input#date1.layui-input(type='text', name='date', autocomplete='off')
-      .layui-form-item
-        label.layui-form-label 文章类型
-        .layui-input-block
-          select(name='interest', lay-filter='aihao')
-            option(value='')
-            option(value='0', selected='') 前端
-            option(value='1') React
-            option(value='2') Angular 
-            option(value='3') Vue
-            option(value='4') 后端
-      .layui-form-item.layui-form-text
-        label.layui-form-label 文本域
-        .layui-input-block
-          textarea.layui-textarea(placeholder='请输入内容')
-      .layui-form-item
-        .layui-input-block
-          button.layui-btn(lay-submit='', lay-filter='demo1') 立即提交
-          button.layui-btn.layui-btn-primary(type='reset') 重置
+      form(action='')
+        div
+          label 文章标题
+            input(type='text', name='title', autocomplete='off', placeholder='请输入标题')
+        div
+          label 关键词语
+            input(type='text', name='username', placeholder='请输入', autocomplete='off')
+        div
+          label 文章类型
+            select(name='interest')
+              option(value='') 
+              option(value='0', selected='') 前端
+              option(value='1') React
+              option(value='2') Angular 
+              option(value='3') Vue
+              option(value='4') 后端
+        div
+          label 文章内容
+            textarea(placeholder='请输入内容')
+        div
+          button() 立即提交
+              button(type='reset') 重置
     //- script(src='../js-css/layui/layui.js', charset='utf-8')
   script    
     include ../js-css/js/nav-title.js
