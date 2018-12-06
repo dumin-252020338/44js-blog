@@ -5,59 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>form</title>
     <style>
-        table{border: 1px solid;}
-        table td input{border: 1px solid;display: inline-block; }
+        *{
+            margin: 0;
+            padding: 0;
+            /* border: 1px solid red; */
+        }
+            
+        body{background-color: #ccc;}
+        form#myform{
+            width:500px;
+            height:500px;
+            border: 1px solid red;
+        }
+        input{
+            display: inline-block;
+            border: 1px solid;
+
+        }
+        button{
+            border: 1px solid red;
+
+        }
     </style>
-</head>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
 
 <body>
-    <form id="myform" name="myform" method="post" onsubmit="return sumbitTest();"          action="RegisterAction.action">  
-        <table>  
-            <tr>  
-                <td>姓名:</td>  
-                <td>
-                    <input type="text" name="name">
-                </td>  
-            </tr>  
-            <tr>  
-                <td>性别:</td>  
-                <td>  
-                    <input type="radio" name="sex" value="1"> 男  
-                    <input type="radio" name="sex" value="0"> 女  
-                </td>  
-            </tr>  
-            <tr>  
-                <td>年龄:</td>  
-                <td>  
-                    <select name="age">  
-                        <option value="20">20</option>  
-                        <option value="21">21</option>  
-                        <option value="22">22</option>  
-                    </select>  
-                </td>  
-            </tr>  
-            <tr>  
-                <td colspan="2">  
-                    <input type="submit" value="Submit普通提交">  
-                    <input type="button" id="ajaxBtn" value="AJAX提交"  />  
-                    <input type="button" id="jqueryBtn" value="jQuery提交"  />  
-                    <input type="button" id="jsBtn" value="JS提交"  />  
-                    <input type="submit" value="onSubmit提交"  />  
-                </td>  
-            </tr>  
-        </table>  
-    </form> 
+    <form id="myform" name="myform" onsubmit="return sumbitTest();" 
+        action="http://localhost:3000">
+      <table>
+          <tr>
+              <td>姓名:</td>
+              <td> <input type="text" name="name" /> </td>
+          </tr>
+          <tr>
+              <td>性别:</td>
+              <td>
+                  <input type="radio" name="sex" value="1"> 男
+                  <input type="radio" name="sex" value="0"> 女
+              </td>
+          </tr>
+          <tr>
+              <td>年龄:</td>
+              <td>
+                  <select name="age">
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                  </select>
+              </td>
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <input type="submit" value="Submit普通提交">
+                  <input type="button" id="ajaxBtn" value="AJAX提交" />
+                  <input type="button" id="jqueryBtn" value="jQuery提交" />
+                  <input type="button" id="jsBtn" value="JS提交" />
+                  <input type="submit" value="onSubmit提交" />
+              </td>
+          </tr>
+      </table>
+  </form>
+  
     <script type="text/javascript">
         $(function () {
             //ajax提交
             $("#ajaxBtn").click(function () {
+                console.log(1)
                 var params = $("#myform").serialize();
                 $.ajax({
-                    type: "POST",
-                    url: "RegisterAction.action",
+                    type: "post",
+                    url: "http://localhost:3000",
                     data: params,
                     success: function (msg) {
                         alert("success: " + msg);
@@ -72,7 +92,7 @@
 
             //js提交 
             $("#jsBtn").click(function () {
-                document.myform.action = "RegisterAction.action";
+                document.myform.action = "http://localhost:3000";
                 document.myform.submit();
             })
         })
@@ -81,7 +101,5 @@
             return true; //return false则不会提交 
         }
     </script>
-
 </body>
-
 </html>

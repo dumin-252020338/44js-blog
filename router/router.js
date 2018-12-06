@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const pug = require('pug')
 //拿到操作 user表 的逻辑对象
 const user = require('../control/user-C')
+const article = require('../control/article')
 const router = new Router
 
 //设计主页，打开浏览看到的页面
