@@ -7,6 +7,8 @@ const User = db.model('users', UserSchema)
 
 //用户注册
 exports.regist = async (ctx) =>{
+    console.log("意愿")
+    console.log(db.articles)
     console.log("这是处理用户注册的中间件")
     //用户注册 post发过来的数据
     const user = ctx.request.body
@@ -47,7 +49,7 @@ exports.regist = async (ctx) =>{
         if(data){
             await ctx.render('success', {
                 status: "注册成功",                
-                back: "即将跳转登录页面"
+                back: "即将跳转登录页面",
             })
         }else{
             await ctx.render('fail', {
@@ -115,7 +117,7 @@ exports.login = async (ctx) =>{
                 username: username,
                 uid: data[0]._id
             }
-            await ctx.render('success', {
+            await ctx.render('successArticle', {
                 status: "登录成功",
                 back: "即将跳转到发表文章页",
                 session: ctx.session

@@ -1,6 +1,7 @@
-//连接数据库，导出db和schema
+//连接数据库，导出db,schema,articledb
 const mongoose = require('mongoose')
 const db = mongoose.createConnection('mongodb://localhost:27017/blogproject')
+// const articledb = mongoose.createConnection('mongodb://localhost:27017/publishArticle')
 //用原生es6的promis 代替mongoose的promise
 mongoose.Promise = global.Promise
 //把mongoose的schema取出来并导出去
@@ -15,5 +16,6 @@ db.on('open', ()=>{
 })
 module.exports = {
     db,
-    Schema
+    Schema,
+    // articledb
 }

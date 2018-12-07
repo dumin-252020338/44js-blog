@@ -6,13 +6,17 @@ const Article = db.model('articles', ArticleSchema)
 
 //
 exports.publishArticle = async(ctx)=>{
-    //发表文章 post 发过来的数据
-    const article = ctx.request.body
+    console.log(db)
+    console.log(123)
 
+    //发表文章 post 发过来的数据
+    console.log("这是处理发表文章的中间件")
+    const article = ctx.request.body
+    console.log(article)
     const title = article.title //标题
     const keyword = article.keyword //关键词
-    const keyword = article.interest //文章类型
-    const keyword = article.desc //文章内容
+    const interest = article.interest //文章类型
+    const desc = article.desc //文章内容
     
     await new Promise((resolve, reject) =>{
         Article.find({title: title}, (err, data)=>{

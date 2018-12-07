@@ -2,6 +2,7 @@ const Router = require('koa-router')
 const pug = require('pug')
 //拿到操作 user表 的逻辑对象
 const user = require('../control/user-C')
+//拿到操作 article表 的逻辑对象
 const article = require('../control/article')
 const router = new Router
 
@@ -34,10 +35,17 @@ router.get("/user/autoPic", user.keepLogin, async (ctx) => {
 })
 
 //发表评论
-router.get("/user/layuiArticle", user.keepLogin, async(ctx)=>{
-    await ctx.render("layuiArticle", {
+router.get("/user/publishArticle", user.keepLogin, async(ctx)=>{
+    await ctx.render("publishArticle", {
         session: ctx.session
     })
 })
+
+
+async(ctx)=>{
+    await ctx.render("publishArticle", {
+        session: ctx.session
+    })
+}
 
 module.exports = router

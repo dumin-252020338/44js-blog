@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title 44-js
+        style
+            include ../js-css/css/nav.css  
+            include ../js-css/css/jump.css  
+            include ../js-css/css/star.css
+    body
+        include nav-title.pug 
+        div(id="jump")   
+            p(class="") !{status}
+            p(class='') !{back}
+    script
+        include ../js-css/js/star.js
+    script.
+        setTimeout(()=>{
+            location.href = '/user/publishArticle'
+        }, 2000) 
