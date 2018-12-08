@@ -5,6 +5,7 @@ const ArticleSchema = new Schema({
     keyword:String,//关键词
     interest:Number,//文章类型
     desc:String,//文章内容
+    author:String,//作者
 }, {versionKey: false})
 
 module.exports = ArticleSchema
