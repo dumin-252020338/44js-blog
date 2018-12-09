@@ -70,7 +70,7 @@
             //@和最后一个点（.）之间必须有内容且只能是字母（大小写）、数字、点（.）、减号（-），且两个点不能挨着=
             //最后一个点（.）之后必须有内容且内容只能是字母（大小写）、数字且长度为大于等于2个字节，小于等于6个字节
             ePattern = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
-        emailValue = email.value;
+            emailValue = email.value;
 
         if (!ePattern.test(emailValue)) {
             email.style.color = '';
@@ -84,18 +84,18 @@
     btn.onclick = function () {
         if (uPattern.test(userValue) && phone.style.color === 'red' && pwd.style.color === 'red' && pwds.style.color === 'red' && email.style.color === 'red') {
             
-            let allStr = '';
-            allStr += `?phone=${phId}&user=${userValue}&pwd=${pwdValue}&email=${emailValue}`;
+            // let allStr = '';
+            // allStr += `?phone=${phId}&user=${userValue}&pwd=${pwdValue}&email=${emailValue}`;
         
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", "https://localhost:3000" + allStr);
-            xhr.send()
-            xhr.onload = function () {
-                if (xhr.readyState !== 4) return;
-                if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-                    const msg = JSON.parse(xhr.responseText)
-                }
-            }
+            // const xhr = new XMLHttpRequest();
+            // xhr.open("GET", "https://localhost:3000" + allStr);
+            // xhr.send()
+            // xhr.onload = function () {
+            //     if (xhr.readyState !== 4) return;
+            //     if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+            //         const msg = JSON.parse(xhr.responseText)
+            //     }
+            // }
 
             btn.innerHTML = "注册成功"
             btn.style.backgroundColor = "green"

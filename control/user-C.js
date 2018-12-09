@@ -47,19 +47,19 @@ exports.regist = async (ctx) =>{
     })
     .then(async (data) =>{
         if(data){
-            await ctx.render('success', {
+            await ctx.render('back', {
                 status: "注册成功",                
                 back: "即将跳转登录页面",
             })
         }else{
-            await ctx.render('fail', {
+            await ctx.render('back', {
                 status: "用户名已存在,请重新注册",
                 back: "即将返回注册页面"
             })
         }
     })
     .catch(async(err) =>{
-        await ctx.render('fail',{
+        await ctx.render('back',{
             status: "用户名已存在,请重新注册",
             back: "即将返回注册页面"
         })
@@ -90,7 +90,7 @@ exports.login = async (ctx) =>{
     })
     .then(async (data) =>{
         if(!data){
-            await ctx.render('login-again', {
+            await ctx.render('back', {
                 status: "密码错误，请重新登录",
                 back: "即将返回登录页面"
             })
@@ -117,7 +117,7 @@ exports.login = async (ctx) =>{
                 username: username,
                 uid: data[0]._id
             }
-            await ctx.render('successArticle', {
+            await ctx.render('back', {
                 status: "登录成功",
                 back: "即将跳转到发表文章页",
                 session: ctx.session
@@ -125,7 +125,7 @@ exports.login = async (ctx) =>{
         }
     })
     .catch(async(err) =>{
-        await ctx.render('login-again', {
+        await ctx.render('back', {
             status: "密码错误，请重新登录",
             back: "即将返回登录页面"
         })
