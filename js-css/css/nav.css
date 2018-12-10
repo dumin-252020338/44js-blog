@@ -6,8 +6,10 @@
     li {
         list-style: none;
     }
-    a {
+    a{
         text-decoration: none;
+    }
+    #nav a, #rightBtn a{
         color: #fff;
     }
     div#nav {
@@ -44,7 +46,7 @@
         position: absolute;
         top:20px;
         right:0px;
-        width: 400px;
+        width: 500px;
         font-size: 18px;
     }
     /* 用户注册登录按钮 */
@@ -65,7 +67,7 @@
         animation:run .8s; 
         font-size: 22px;
     }
-    div#rightBtn .user-logout .user,.headPhoto, .logout, .article-send{
+    div#rightBtn .user-logout .user,.headPhoto, .logout, .article-send, .username{
         display: inline-block;
         width: 100px;
         border-radius: 20px;

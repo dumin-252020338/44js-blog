@@ -16,10 +16,10 @@ exports.addArticlePage = async(ctx)=>{
 }
 //添加发表文章
 exports.addArticle = async(ctx)=>{
-    console.log(2)
+    console.log("添加发表文章")
     const data = ctx.request.body
     console.log(data)
-    // data.author = ctx.session.username
+    data.author = ctx.session.uid
     await new Promise((resolve, reject) =>{
         new Article(data).save((err, data)=>{
             // console.log(data.author)
@@ -49,18 +49,24 @@ exports.addArticle = async(ctx)=>{
 }
 //返回文章列表
 exports.getList = async(ctx) =>{
-    const data = ctx.request.body
     console.log("000")
-    console.log(data)
-    const page = ctx.params.id
-    
-    data.author = ctx.session.username
-
-    console.log(data.author)
-    console.log(ctx.session)
-    console.log(111)
+    let page = ctx.params.id || 1 //默认在第一页
+        page--
+    let artList = await Article
+        .find() //找到所有数据
+        .sort("-created") //倒序排序
+        .skip(2 * page) //跳过 20*页数 的数据
+        .limit(2) //每页显示2条
+        .populate({
+            path: "author",
+            select: "_id username headPhoto"
+        })
+        .then(data => data)
+        .catch(err =>console.log(err))
+    console.log(artList)
     await ctx.render("nav", {
         // title:title,
-        session: ctx.session
+        session: ctx.session,
+        artList: artList,
     })
 }

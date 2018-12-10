@@ -7,13 +7,18 @@ html
         div(id="con") 欢迎来到44js-博客实战
         div(id='articleCon')
             ul
-                li 123
-                    h1 !{title}
-                    span !{keyword}
-                    span !{author}
-                    span !{interest}
-                    span !{desc}
-                li 456
+                each info in artList
+                    li
+                        a
+                            img(src=info.author.headPhoto, alt="info.author", srcset="")
+                        h2
+                            a=info.title
+                            a=info.interest
+                            a=info.desc
+                        div
+                            a=info.author.username
+                            span=info.author._id
+                            //- span=info.created.tolocaleString()
     script
         include ../js-css/js/star.js
     

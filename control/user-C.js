@@ -7,12 +7,8 @@ const User = db.model('users', UserSchema)
 
 //用户注册
 exports.regist = async (ctx) =>{
-    console.log("意愿")
-    console.log(db.articles)
-    console.log("这是处理用户注册的中间件")
     //用户注册 post发过来的数据
     const user = ctx.request.body
-    console.log(user)
     const username = user.username
     const phone = user.phone
     const password = user.password 
@@ -70,7 +66,6 @@ exports.regist = async (ctx) =>{
 exports.login = async (ctx) =>{
     //用户登陆 post 发过来的数据
     const user = ctx.request.body
-    // console.log(user)
     const username = user.username
     const password = user.password 
     
@@ -81,7 +76,6 @@ exports.login = async (ctx) =>{
                 return reject('用户名不存在')
             }
             //把用户传过来的密码，加密后跟数据库的比对
-            // console.log(data[0])
             if(data[0].password === crypto(password)){
                 return resolve(data)
             }
@@ -91,7 +85,7 @@ exports.login = async (ctx) =>{
     .then(async (data) =>{
         if(!data){
             await ctx.render('back', {
-                status: "密码错误，请重新登录",
+                status: "密码错误，请重新登录1",
                 back: "即将返回登录页面"
             })
         }else{
@@ -127,8 +121,8 @@ exports.login = async (ctx) =>{
     })
     .catch(async(err) =>{
         await ctx.render('back', {
-            status: "密码错误，请重新登录",
-            back: "即将返回登录页面"
+            status: "用户名不存在，请注册",
+            back: "即将返回注册页面"
         })
     })
 }

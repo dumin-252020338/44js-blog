@@ -38,6 +38,8 @@ router.get("/user/autoPic", user.keepLogin, async (ctx) => {
 router.get("/user/addArticlePage", user.keepLogin, article.addArticlePage)
 //文章的发表 路由
 router.post("/user/addArticlePage", user.keepLogin, article.addArticle)
+//文章分页路由
+router.get("/page/:id", user.keepLogin, article.getList)
 
 
 module.exports = router
