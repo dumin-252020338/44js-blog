@@ -6,6 +6,10 @@ const UserSchema = new Schema({
     password:String,
     passwords:String,
     emali:String,
+    headPhoto:{
+        type:String,
+        default:"/img/default.jpg"
+    }
 }, {versionKey: false})
 
 module.exports = UserSchema

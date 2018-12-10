@@ -115,7 +115,8 @@ exports.login = async (ctx) =>{
             
             ctx.session = {
                 username: username,
-                uid: data[0]._id
+                uid: data[0]._id,
+                headPhoto: data[0].headPhoto
             }
             await ctx.render('back', {
                 status: "登录成功",

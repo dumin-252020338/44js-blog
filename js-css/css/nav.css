@@ -44,7 +44,7 @@
         position: absolute;
         top:20px;
         right:0px;
-        width: 300px;
+        width: 400px;
         font-size: 18px;
     }
     /* 用户注册登录按钮 */
@@ -65,11 +65,17 @@
         animation:run .8s; 
         font-size: 22px;
     }
-    div#rightBtn .user-logout .user, .logout, .article-send{
+    div#rightBtn .user-logout .user,.headPhoto, .logout, .article-send{
         display: inline-block;
         width: 100px;
         border-radius: 20px;
         text-align: center;
+        vertical-align:middle;
+    }
+    div#rightBtn .headPhoto img{
+        width: 30px;
+        height: 30px;
+        vertical-align:middle;
     }
     @keyframes run{
         from{background-color: #000;}
