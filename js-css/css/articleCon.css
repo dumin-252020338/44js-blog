@@ -62,3 +62,10 @@
     transition: all 0.3s linear;
     color:red;
 }
+#paging{
+    display: flex;
+    width: 600px;
+    margin: 0 auto;
+    justify-content: space-around;
+
+}
