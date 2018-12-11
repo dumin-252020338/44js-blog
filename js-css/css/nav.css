@@ -62,7 +62,7 @@
         text-align: center;
     }
     /* 个人中心、退出按钮 */
-    div#rightBtn .user:hover, div#rightBtn .logout:hover, div#rightBtn .user-logout .article-send:hover{
+    div#rightBtn .user:hover, div#rightBtn .logout:hover, div#rightBtn .user-logout .article-send:hover, div#rightBtn .headPhoto:hover, div#rightBtn .username:hover{
         background-color: #6cdd22;
         animation:run .8s; 
         font-size: 22px;
@@ -78,6 +78,7 @@
         width: 30px;
         height: 30px;
         vertical-align:middle;
+        border-radius: 50%;
     }
     @keyframes run{
         from{background-color: #000;}
@@ -95,7 +96,6 @@
         border-width:10px 10px 0;
         border-style:solid;
         border-color:rgb(238, 84, 84) transparent transparent;/*灰 透明 透明 */
-        /* margin:10px auto; */
         position:absolute;
         top:45px;
         left:38px;

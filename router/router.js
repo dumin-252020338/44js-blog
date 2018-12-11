@@ -8,10 +8,6 @@ const router = new Router
 
 //设计主页，打开浏览看到的页面
 router.get("/", user.keepLogin, article.getList)
-
-
-
-
 router.get(/^\/user\/(?=regist|login)/, async(ctx)=>{
     const show = /login$/.test(ctx.path)
     await ctx.render("reg",{

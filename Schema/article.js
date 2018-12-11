@@ -4,8 +4,8 @@ const ObjectId = Schema.Types.ObjectId
 const ArticleSchema = new Schema({
     title:String,//标题
     keyword:String,//关键词
-    interest:Number,//文章类型
-    desc:String,//文章内容
+    type:String,//文章类型
+    content:String,//文章内容
     author:{
         type: ObjectId,
         ref: "users"

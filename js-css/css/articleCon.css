@@ -4,10 +4,61 @@
 #articleCon ul{
     width: 500px;
     margin: 0px auto;
-    background-color: rgb(255, 255, 255);
-
 }
-#articleCon li{
-    border-bottom: 1px solid blue;
-
+#articleCon .article-list{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    background-color: rgba(121, 121, 121, 0.3);
+    box-shadow: 2px 2px 5px 2px;
+    border-radius: 10px;
+    margin-bottom:10px;
+    font-family: 'Courier New', Courier, monospace;
+    transition: all 0.3s linear;
+}
+#articleCon .article-list:hover{
+    background-color: rgba(0, 255, 200, 0.3);
+    transform: scale(1.05);
+    transition: all 0.3s linear;
+}
+#articleCon .article-list .articleLeft{
+    cursor:pointer;
+}
+#articleCon .article-list .articleLeft img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+#articleCon .article-list .articleLeft img:hover{
+    border: 1px solid red;
+    transition: all 0.3s linear;
+}
+#articleCon .article-list .articleRight{
+    width: 400px;
+}
+#articleCon .article-list .articleRight .title, .author, .type, .content{
+    cursor:pointer;
+}
+#articleCon .article-list .articleRight .content{
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: justify;
+    margin: 5px 0;
+    text-indent: 30px;    
+}
+#articleCon .article-list .articleRight span{
+    display:inline-block;
+    margin:3px;
+    text-align: center;
+}
+#articleCon .article-list .articleRight .type{
+    background-color: rgb(255, 0, 0);
+    border-radius: 5px;
+    color:white;
+}
+#articleCon .article-list .articleRight .title:hover,.type:hover, .author:hover{
+    transition: all 0.3s linear;
+    color:red;
 }

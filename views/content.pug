@@ -8,17 +8,18 @@ html
         div(id='articleCon')
             ul
                 each info in artList
-                    li
-                        a
-                            img(src=info.author.headPhoto, alt="info.author", srcset="")
-                        h2
-                            a=info.title
-                            a=info.interest
-                            a=info.desc
-                        div
-                            a=info.author.username
-                            span=info.author._id
-                            //- span=info.created.tolocaleString()
+                    li(class='article-list')
+                        div(class='articleLeft')
+                            a
+                                img(src=info.author.headPhoto, alt=info.author, srcset="")
+                        div(class="articleRight")
+                            h2(class='title') !{info.title}
+                            span 作者:
+                            span(class='author') !{info.author.username} &nbsp
+                            span type:
+                            span(class='type') !{info.type}
+                            //- span(class='comment') 评论数:!{}
+                            div(class='content') !{info.content}
     script
         include ../js-css/js/star.js
     
