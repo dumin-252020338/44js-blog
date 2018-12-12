@@ -11,6 +11,7 @@ html
     body
         include nav-title.pug
         div(id="con")
+        hr(class="layui-bg-green")
         div(id="wrap")
             div(class="list-p")
                 p(class="active") 1/5
@@ -18,17 +19,26 @@ html
                 p 3/5
                 p 4/5
                 p 5/5
-            ul(class="list-img")
+            //- <div class="layui-carousel" id="test1">
+            //-     <div carousel-item>
+            //-         <div>条目1</div>
+            //-         <div>条目2</div>
+            //-         <div>条目3</div>
+            //-         <div>条目4</div>
+            //-         <div>条目5</div>
+            //-     </div>
+            //- </div>
+            ul(class="layui-carousel list-img" id="test1")
                 li(class="active li1")
-                    div 1
+                    img(src="/img/1.jpg", alt="", srcset="")
                 li(class="li2")
-                    div 2
+                    img(src="/img/2.jpg", alt="", srcset="")
                 li(class="li3")
-                    div 3
+                    img(src="/img/3.jpg", alt="", srcset="")
                 li(class="li4")
-                    div 4
+                    img(src="/img/4.jpg", alt="", srcset="")
                 li(class="li5")
-                    div 5
+                    img(src="/img/5.jpg", alt="", srcset="")
             div(class="dot")
                 span(class="active-dot")
                 span
