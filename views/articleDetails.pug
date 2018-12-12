@@ -1,0 +1,31 @@
+doctype html
+html
+    style
+        include ../js-css/css/star.css
+        include ../js-css/css/articleCon.css
+        include ../js-css/layui/css/layui.css
+    body
+        div(id="con") 欢迎来到44js-博客实战
+        hr(class="layui-bg-cyan")
+        div(id='artilceDetails')
+            div(class='up')
+                div(class='title') !{article.title}
+                span(class='author') !{article.author.username}
+                span(class='date') 发表于:!{article.created.toLocaleString()}
+                span(class='type') 分类:!{article.type}
+            div(class='content') !{article.content}
+        ul 
+            li 1
+            li 2
+        //- div(id='paging' data-maxNum=maxNum)
+        //- #paging(data-maxNum=maxNum)
+    script(src="/layui/layui.js")
+    script.
+        layui.use(['laypage', 'layer'], function(){
+            let laypage = layui.laypage
+                layer = layui.layer;
+            const $ = layui.$;
+        })
+    script
+        include ../js-css/js/star.js
+    

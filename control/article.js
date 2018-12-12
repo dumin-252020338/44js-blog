@@ -9,7 +9,7 @@ const User = db.model('users', UserSchema)
 
 //返回文章发表页面
 exports.addArticlePage = async(ctx)=>{
-    await ctx.render("publishArticle", {
+    await ctx.render("layui", {
         session: ctx.session
     })
 }
@@ -63,5 +63,24 @@ exports.getList = async(ctx) =>{
         session: ctx.session,
         artList: artList,
         maxNum,
+    })
+}
+
+//文章详情页
+exports.articleDetails = async(ctx) =>{
+    //获取动态路由内的 id
+    const _id = ctx.params.id
+    //找到article数据库的数据，并关联作者
+    const article = await Article
+    .findById(_id)
+    .populate({
+        path: 'author',
+        select:'username',
+    })
+    .then(data => data)
+    await ctx.render('articleDetails',{
+        title:article.title,
+        session:ctx.session,
+        article:article,
     })
 }

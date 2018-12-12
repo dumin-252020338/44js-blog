@@ -15,12 +15,13 @@ html
                             a
                                 img(src=info.author.headPhoto, alt=info.author, srcset="")
                         div(class="articleRight")
-                            h2(class='title') !{info.title}
+                            a(class='title' src=`/article/${info._id}`) !{info.title}
+                            br
                             span 作者:
-                            span(class='author') !{info.author.username} &nbsp
+                            a(class='author') !{info.author.username} &nbsp
                             span 类型:
-                            span(class='type') !{info.type}
-                            //- span(class='comment') 评论数:!{}
+                            a(class='type') !{info.type}
+                            span(class='comment') 评论数:0
                             div(class='content') !{info.content}
         //- div(id='paging' data-maxNum=maxNum)
         #paging(data-maxNum=maxNum)

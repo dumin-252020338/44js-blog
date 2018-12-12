@@ -36,6 +36,8 @@ router.get("/user/addArticlePage", user.keepLogin, article.addArticlePage)
 router.post("/user/addArticlePage", user.keepLogin, article.addArticle)
 //文章分页路由
 router.get("/page/:id", user.keepLogin, article.getList)
+//文章详情页路由
+router.get("/article/:id", user.keepLogin, article.articleDetails)
 
 
 module.exports = router
