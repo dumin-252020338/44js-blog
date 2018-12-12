@@ -1,5 +1,6 @@
 #articleCon{
     font-size: 20px;
+    margin-top: 10px;
 }
 #articleCon ul{
     width: 500px;
@@ -21,7 +22,8 @@
     transform: scale(1.05);
     transition: all 0.3s linear;
 }
-#articleCon .article-list .articleLeft{
+
+#articleCon .article-list a.articleLeft{
     cursor:pointer;
 }
 #articleCon .article-list .articleLeft img{

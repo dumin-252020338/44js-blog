@@ -3,7 +3,6 @@
     width: 640px;
     height: 460px;
     margin: 50px auto;
-    background-color: #91ffcd;
     border-radius: 20px;
 }
 #wrap div.list-p{
@@ -34,6 +33,11 @@
 #wrap .active{
     display: block;
 }
+#wrap .list-img img{
+    width: 640px;
+    height: 410px;
+    border-radius: 10px;
+}
 #wrap .active-dot{
     display: inline-block;
     background-color:#f10;
@@ -58,6 +62,7 @@
     line-height: 50px;
     cursor: pointer;
     opacity: 0.7;
+    border-radius: 50%;
 }
 #wrap .right{
     right:0px;
