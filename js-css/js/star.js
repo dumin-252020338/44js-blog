@@ -36,4 +36,4 @@
             p[i].style.left = arr[i].leftPos() +'px';
         }
     }
-    setInterval(timer,100)
+    setInterval(timer,100);

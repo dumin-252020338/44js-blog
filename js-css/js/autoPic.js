@@ -72,7 +72,7 @@ let wrap = document.getElementById("wrap"),
         }
         //打开自动轮播
         let autoPicTimer;
-        // autoRun();
+        autoRun();
         function autoRun(){
             autoPicTimer = setInterval(function(){
                 none()

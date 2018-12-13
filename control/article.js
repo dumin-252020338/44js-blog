@@ -58,6 +58,7 @@ exports.getList = async(ctx) =>{
         })
         .then(data => data)
         .catch(err =>console.log(err))
+        console.log(artList)
     await ctx.render("nav", {
         // title:title,
         session: ctx.session,

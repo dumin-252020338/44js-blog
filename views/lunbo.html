@@ -30,31 +30,60 @@
  
 <script src="../js-css/layui/layui.js"></script>
 <script>
-layui.use('carousel', function(){
-    var carousel = layui.carousel;
-    //建造实例
-    carousel.render({
-        elem: '#test1'
-        ,width: '80%' //设置容器宽度
-        ,height: '1080px' //设置容器宽度
-        ,arrow: 'always' //始终显示箭头
-        ,anim: 'fade' //轮播切换动画方式,可选值为: 默认default(左右切换) updown(上下切换) fade(渐隐渐显切换)
-        ,interval: 2000 //自动切换的时间间隔,单位:ms(毫秒),不能低于800 默认3000
-        ,arrow: "hover" //切换箭头默认显示状态,可选值为: 默认hover(悬停显示) always(始终显示) none(始终不显示)
-        ,indicator: "outside" //指示器位置,可选值为: 默认inside(容器内部) outside(容器外部) none(不显示)  
-    });
-});
-layui.use('layim', function(layim){
-    //先来个客服模式压压精
-    layim.config({
-        brief: true //是否简约模式（如果true则不显示主面板）
-        }).chat({
-        name: '客服姐姐'
-        ,type: 'friend'
-        ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1'
-        ,id: -2
-    });
-});
+    const a = [1, 2, 3, 4, 5];
+    let arr=[];
+    let b = [10];
+    Array.prototype.multiply = function (){ //在数组的原型上扩展一个multiply方法
+        for(let i=0; len=a.length,i<len; i++){
+            // arr.push(Math.pow(a[i],2)) ==> pow方式：a[i]的2次方
+            arr.push(a[i] * a[i])
+        }
+        console.log(a.concat(arr))
+    }
+    a.multiply()
+
+//     Object.defineProperty(Array.prototype, 'multiply', {
+//         enumerable: false,
+//         configurable: false,
+//         writable: false,
+//         value: function() {
+//             // let [...result] = this;
+//             let result = this;
+//             this.forEach(item => result.push(item * item));
+//             return result;
+//         }
+//     })
+// a.multiply()
+// console.log(a)
+
+// b.multiply()
+// console.log(b)
+
+// layui.use('carousel', function(){
+//     var carousel = layui.carousel;
+//     //建造实例
+//     carousel.render({
+//         elem: '#test1'
+//         ,width: '80%' //设置容器宽度
+//         ,height: '1080px' //设置容器宽度
+//         ,arrow: 'always' //始终显示箭头
+//         ,anim: 'fade' //轮播切换动画方式,可选值为: 默认default(左右切换) updown(上下切换) fade(渐隐渐显切换)
+//         ,interval: 2000 //自动切换的时间间隔,单位:ms(毫秒),不能低于800 默认3000
+//         ,arrow: "hover" //切换箭头默认显示状态,可选值为: 默认hover(悬停显示) always(始终显示) none(始终不显示)
+//         ,indicator: "outside" //指示器位置,可选值为: 默认inside(容器内部) outside(容器外部) none(不显示)  
+//     });
+// });
+// layui.use('layim', function(layim){
+//     //先来个客服模式压压精
+//     layim.config({
+//         brief: true //是否简约模式（如果true则不显示主面板）
+//         }).chat({
+//         name: '客服姐姐'
+//         ,type: 'friend'
+//         ,avatar: 'http://tp1.sinaimg.cn/5619439268/180/40030060651/1'
+//         ,id: -2
+//     });
+// });
 
 </script>
 </body>

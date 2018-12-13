@@ -5,8 +5,7 @@ html
         include ../js-css/css/articleCon.css
         include ../js-css/layui/css/layui.css
     body
-        div(id="con") 欢迎来到44js-博客实战
-        hr(class="layui-bg-cyan")
+        div(id="con")
         div(id='articleCon')
             ul
                 each info in artList
@@ -15,15 +14,14 @@ html
                             a
                                 img(src=info.author.headPhoto, alt=info.author, srcset="")
                         div(class="articleRight")
-                            a(class='title' src=`/article/${info._id}`) !{info.title}
+                            a(class='title' href=`/article/${info._id}`) !{info.title}
                             br
                             span 作者:
                             a(class='author') !{info.author.username} &nbsp
                             span 类型:
-                            a(class='type') !{info.type}
+                            a(class='type') !{info.interest}
                             span(class='comment') 评论数:0
                             div(class='content') !{info.content}
-        //- div(id='paging' data-maxNum=maxNum)
         #paging(data-maxNum=maxNum)
     script(src="/layui/layui.js")
     script.

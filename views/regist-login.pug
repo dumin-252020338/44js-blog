@@ -1,3 +1,6 @@
+style
+    include ../js-css/css/star.css
+div(id="con")
 //-注册页面
 form(id=show ? "" : "login" action="regist" method="post")
     h3 请填写注册信息
@@ -56,3 +59,5 @@ form(id=show ? "regist" : "" action="login" method="post")
         div(class="layui-input-block")
             button(class="layui-btn") 立即提交
             button(type="reset" class="layui-btn layui-btn-primary") 重置
+script
+    include ../js-css/js/star.js
