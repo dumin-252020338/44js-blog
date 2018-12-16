@@ -5,32 +5,82 @@ html
         include ../js-css/css/star.css
         include ../js-css/css/articleCon.css
         include ../js-css/layui/css/layui.css
+        include ../js-css/css/comment.css
+
     body
         include nav-title.pug
         div(id='con')
+        //-文章详情
         div(id='artilceDetails')
             div(class='up')
-                div(class='title') !{article.title}
+                h1(class='artid' data-artid=article._id)
+                div(class='title')=article.title
                 span(class='author') !{article.author.username}
                 span(class='date') 发表于:!{article.created.toLocaleString()}
                 span(class='type') 分类:!{article.type}
             hr(class="layui-bg-white")
             div(class='content') !{article.content}
         hr(class="layui-bg-white")
-        ul 
-            li 1
-            li 2
-        //- div(id='paging' data-maxNum=maxNum)
-        //- #paging(data-maxNum=maxNum)
+        //-评论部分
+        div#comment
+            //- form(action='/article/addComment', method="post" class="layui-form layui-form-pane")
+            ul.comment-list
+                li 
+                    img(src='/img/default.jpg')
+                    div 
+                        p.author !{from}123
+                        p.time 2018-12-16 21:09
+                    .she-said 这是评论内容
+                each info in comment
+                    li
+                        img(src= info.from.headPhoto)
+                        div
+                            p.author !{info.from.username}
+                            p.time !{info.created.toLocaleString()}
+                            .she.said !{info.content}
+            fieldset.text-center
+                legend 评论
+                div.txt
+                    textarea#comment-txt(name="", cols="30", rows="10")
+                    button.layui-btn 回复
+                
     script(src="/layui/layui.js")
     script.
-        layui.use(['laypage', 'layer'], function(){
-            let laypage = layui.laypage
-                layer = layui.layer;
-            const $ = layui.$;
+        layui.use(['element', 'layer', 'layedit'], function(){
+            const layer = layui.layer
+            const layedit = layui.layedit
+            const $ = layui.$
+            const idx = layedit.build("comment-txt",{
+                tool:[],
+                height:180
+            })
+            
+            $('#comment button').click(async()=>{
+                let content = layedit.getContent(idx).trim()
+                console.log(content)
+                if(content.length === 0 )return layer.msg('评论不能为空')
+
+                const data={
+                    content,
+                    articles: $(".artid").data("artid")
+                }
+                $.post("/article/addComment",data, (data)=>{
+                    layer.msg(data.msg),{
+                        time:1000,
+                        end(){
+                            if(data.status===1){
+                                console.log('发送结束')
+                                window.location.reload()
+                            }
+                        }
+                    }
+                    console.log('发送完成')
+                })
+            })
         })
     script
         include ../js-css/js/nav-title.js
         include ../js-css/js/star.js
+        //- include ../js-css/js/comment.js
 
     

@@ -1,9 +1,12 @@
 const Router = require('koa-router')
 const pug = require('pug')
-//拿到操作 user表 的逻辑对象
+//拿到操作 user 表的逻辑对象
 const user = require('../control/user-C')
-//拿到操作 article表 的逻辑对象
+//拿到操作 article 表 的逻辑对象
 const article = require('../control/article')
+//拿到操作 comment 表 的逻辑对象
+const comment = require('../control/comment')
+
 const router = new Router
 
 //设计主页，打开浏览看到的页面
@@ -38,6 +41,8 @@ router.post("/user/addArticlePage", user.keepLogin, article.addArticle)
 router.get("/page/:id", user.keepLogin, article.getList)
 //文章详情页路由
 router.get("/article/:id", user.keepLogin, article.articleDetails)
+//文章评论路由
+router.post("/article/addComment", user.keepLogin, comment.addComment)
 
 
 module.exports = router

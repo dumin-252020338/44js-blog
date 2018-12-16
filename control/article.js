@@ -1,11 +1,15 @@
 const { db } = require('../Schema/config')
-const ArticleSchema = require('../Schema/article')
 //通过 db 对象创建操作article数据库的模型对象  articles为数据库名
+const ArticleSchema = require('../Schema/article')
 const Article = db.model('articles', ArticleSchema)
 
 //通过 db 对象创建操作user数据库的模型对象  users为数据库名
 const UserSchema = require('../Schema/user-S')
 const User = db.model('users', UserSchema)
+
+//通过 db 对象创建操作 comment 数据库的模型对象  comments 为数据库名
+const CommentSchema = require('../Schema/comment')
+const Comment = db.model('comments', CommentSchema)
 
 //返回文章发表页面
 exports.addArticlePage = async(ctx)=>{
@@ -46,7 +50,7 @@ exports.getList = async(ctx) =>{
         page--
 
     const maxNum = await Article.estimatedDocumentCount((err,data)=>err? console.log(err):data) //获取数据库所有的数据
-    console.log(maxNum)
+    // console.log(maxNum)
     let artList = await Article
         .find() //找到所有数据
         .sort("-created") //倒序排序
@@ -58,7 +62,7 @@ exports.getList = async(ctx) =>{
         })
         .then(data => data)
         .catch(err =>console.log(err))
-        console.log(artList)
+        // console.log(artList)
     await ctx.render("nav", {
         // title:title,
         session: ctx.session,
@@ -71,17 +75,30 @@ exports.getList = async(ctx) =>{
 exports.articleDetails = async(ctx) =>{
     //获取动态路由内的 id
     const _id = ctx.params.id
-    //找到article数据库的数据，并关联作者
+
+    //查找article数据库的数据，并关联作者
     const article = await Article
-    .findById(_id)
-    .populate({
-        path: 'author',
-        select:'username',
-    })
-    .then(data => data)
+        .findById(_id)
+        .populate('author', 'username')
+        .then(data => data)
+        console.log('文章数据'+ article)
+        console.log('文章数据'+ article.author._id)
+        console.log({article: _id})
+
+    //-查找评论
+    const comment = await Comment
+        .find({article: _id})
+        .sort('-created')
+        .populate("from", "username headPhoto")
+        .then(data => data)
+        .catch(err => {console.log(err)})
+        console.log(comment)
+        // console.log(Comment.find())
+
     await ctx.render('articleDetails',{
-        title:article.title,
-        session:ctx.session,
-        article:article,
+        title: article.title,
+        session: ctx.session,
+        article: article,
+        comment: comment,
     })
 }

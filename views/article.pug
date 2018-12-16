@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title 44-js
+        style
+            include ../js-css/css/nav.css
+            include ../js-css/css/article.css
+    body
+        include nav-title.pug 
+        div(id='article')
+            ul
+            div( class='other')
+                div(type="text" contenteditable="true" class="input")
+                button(id="btn") 发表评论
+                p 你要发表的评论
+            
+    <div>
+    script
+        include ../js-css/js/article.js

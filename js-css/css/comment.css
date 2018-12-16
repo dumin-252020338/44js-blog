@@ -1,9 +1,9 @@
 body{background-color: rgb(155, 128, 112);}
-#article{
+#comment{
     width: 800px;
     margin: 10px auto;
 }
-#article ul li{
+#comment ul li{
     display: inline-block; 
     width: 100%;
     line-height: 30px;
@@ -15,12 +15,12 @@ body{background-color: rgb(155, 128, 112);}
     font-size: 18px;
     box-shadow: 5px 5px 5px #858585;
 }
-#article ul li span{
+#comment ul li span{
     float: right;
     font-size: 16px;
     margin:20px 5px 0px 0px;
 }
-#article .input{
+#comment .input{
     position: relative;
     height: 200px;
     background-color:#eff7ff;
@@ -29,19 +29,10 @@ body{background-color: rgb(155, 128, 112);}
     padding: 10px; 
     overflow-y:auto;
 }
-#article button#btn{
-    width: 120px;
-    height: 40px;
-    font-size: 18px;
-    border-radius: 5px;
-    background-color:#000;
-    color:#fff;
-    cursor: pointer;
-}
-#article .other{
+#comment .other{
     position: relative;
 }
-#article .other p{
+#comment .other p{
     position: absolute;
     top:60px;
     left:220px;
