@@ -1,7 +1,7 @@
 div(id="nav")
     ul(class="")
         li(class="layui-nav-item")
-            a(href="http://localhost:3000") 首页
+            a(href="") 首页
             span 
         li
             a(href="/user/autoPic") 轮播
@@ -15,19 +15,19 @@ div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')
             div(class='article-send')
-                a(href="http://localhost:3000/user/addArticlePage" class='no-f5') 发表文章
+                a(href="/user/addArticlePage" class='no-f5') 发表文章
             div(class='headPhoto')
                 img(src=session.headPhoto, alt="", srcset="" class='')
             div(class='username')
                 a(href='')=session.username
             div(class='user')
-                a(href="hhttp://localhost:3000") 个人中心
+                a(href="h") 个人中心
             div(class='logout') 
-                a(href="http://localhost:3000/user/logout") 退出
+                a(href="/user/logout") 退出
     else 
         div(class='log-reg')
             div(class='log')
-                a(href="http://localhost:3000/user/login") 登录
+                a(href="/user/login") 登录
             div(class='reg') 
-                a(href="http://localhost:3000/user/regist") 注册            
+                a(href="/user/regist") 注册            
         
