@@ -4,10 +4,10 @@ body{background-color: rgb(155, 128, 112);}
     margin: 10px auto;
 }
 #comment ul li{
-    display: inline-block; 
+    position: relative;
     width: 100%;
-    line-height: 30px;
-    text-indent: 40px; 
+    margin: 10px 0;
+    padding: 10px;
     background-color:#58aaa5;
     border-bottom: 1px solid;
     border-radius: 10px;
@@ -15,28 +15,21 @@ body{background-color: rgb(155, 128, 112);}
     font-size: 18px;
     box-shadow: 5px 5px 5px #858585;
 }
-#comment ul li span{
-    float: right;
-    font-size: 16px;
-    margin:20px 5px 0px 0px;
+#comment .comment-list li img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    /* vertical-align: middle; */
 }
-#comment .input{
-    position: relative;
-    height: 200px;
-    background-color:#eff7ff;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #858585;
-    padding: 10px; 
-    overflow-y:auto;
+#comment .comment-list li>div{
+    display: inline-block;
+    text-indent: 20px;
+    vertical-align: middle;
 }
-#comment .other{
-    position: relative;
-}
-#comment .other p{
+#comment .comment-list li div .time{
     position: absolute;
-    top:60px;
-    left:220px;
-    font-size: 50px;
-    opacity: 0.1;
-    color: #858585;
+    bottom: 5px;
+    right: 5px;
+    font-size: 14px;
+    color:rgb(223, 223, 223);
 }

@@ -1,16 +1,16 @@
 div(id="nav")
     ul(class="")
         li(class="layui-nav-item")
-            a(href="") 首页
+            a(href="/") 首页
             span 
         li
             a(href="/user/autoPic") 轮播
         li
-            a(href="") 移动
+            a(href="/") 移动
         li
-            a(href="") 游戏
+            a(href="/") 游戏
         li
-            a(href="") 编程
+            a(href="/") 编程
 div(id='rightBtn')
     if session && !session.isNew
         div(class='user-logout')
@@ -19,9 +19,9 @@ div(id='rightBtn')
             div(class='headPhoto')
                 img(src=session.headPhoto, alt="", srcset="" class='')
             div(class='username')
-                a(href='')=session.username
+                a(href='/')=session.username
             div(class='user')
-                a(href="h") 个人中心
+                a(href="/") 个人中心
             div(class='logout') 
                 a(href="/user/logout") 退出
     else 

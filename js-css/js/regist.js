@@ -83,20 +83,6 @@
     //提交按钮
     btn.onclick = function () {
         if (uPattern.test(userValue) && phone.style.color === 'red' && pwd.style.color === 'red' && pwds.style.color === 'red' && email.style.color === 'red') {
-            
-            // let allStr = '';
-            // allStr += `?phone=${phId}&user=${userValue}&pwd=${pwdValue}&email=${emailValue}`;
-        
-            // const xhr = new XMLHttpRequest();
-            // xhr.open("GET", "https://localhost:3000" + allStr);
-            // xhr.send()
-            // xhr.onload = function () {
-            //     if (xhr.readyState !== 4) return;
-            //     if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
-            //         const msg = JSON.parse(xhr.responseText)
-            //     }
-            // }
-
             btn.innerHTML = "注册成功"
             btn.style.backgroundColor = "green"
         } else {

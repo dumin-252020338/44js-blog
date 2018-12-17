@@ -9,7 +9,7 @@ const User = db.model('users', UserSchema)
 
 //通过 db 对象创建操作 comment 数据库的模型对象  comments 为数据库名
 const CommentSchema = require('../Schema/comment')
-const Comment = db.model('comments', CommentSchema)
+const Comments = db.model('comments', CommentSchema)
 
 exports.addComment = async(ctx) =>{
     let message ={
@@ -22,7 +22,7 @@ exports.addComment = async(ctx) =>{
     const data = ctx.request.body
     data.from = ctx.session.uid
     
-    const _comment = new Comment(data)
+    const _comment = new Comments(data)
     await _comment
         .save()
         .then(data =>{

@@ -152,6 +152,6 @@ exports.logout = async (ctx) =>{
     ctx.cookies.set('uid', null, {
         maxAge: 0
     })
-    ctx.redirect('/')
+    ctx.redirect('/')//返回首页
     
 }

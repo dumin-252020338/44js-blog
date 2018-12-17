@@ -13,16 +13,16 @@
                     commentTxt,
                     articles: $("#artilceDetails .title").data("artid")
                 }
-            $.post("/article/addComment",data, ()=>{
-                layer.msg(data.msg),{
-                    time:1000,
-                    end(){
-                        if(data.status===1){
-                            window.location.reload()
+                $.post("/article/addComment",data, ()=>{
+                    layer.msg(data.msg),{
+                        time:1000,
+                        end(){
+                            if(data.status===1){
+                                window.location.reload()
+                            }
                         }
                     }
-                }
-            })
+                })
             }
         })
 

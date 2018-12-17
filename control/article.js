@@ -9,11 +9,11 @@ const User = db.model('users', UserSchema)
 
 //通过 db 对象创建操作 comment 数据库的模型对象  comments 为数据库名
 const CommentSchema = require('../Schema/comment')
-const Comment = db.model('comments', CommentSchema)
+const Comments = db.model('comments', CommentSchema)
 
 //返回文章发表页面
 exports.addArticlePage = async(ctx)=>{
-    await ctx.render("layui", {
+    await ctx.render("publishArticle", {
         session: ctx.session
     })
 }
@@ -81,19 +81,17 @@ exports.articleDetails = async(ctx) =>{
         .findById(_id)
         .populate('author', 'username')
         .then(data => data)
-        console.log('文章数据'+ article)
-        console.log('文章数据'+ article.author._id)
         console.log({article: _id})
-
+        console.log(article)
+        console.log("id是" + article._id)
     //-查找评论
-    const comment = await Comment
-        .find({article: _id})
-        .sort('-created')
+    const comment = await Comments
+        .find({article:_id})
+        .sort("-created")
         .populate("from", "username headPhoto")
         .then(data => data)
         .catch(err => {console.log(err)})
         console.log(comment)
-        // console.log(Comment.find())
 
     await ctx.render('articleDetails',{
         title: article.title,

@@ -6,7 +6,6 @@ html
         include ../js-css/css/articleCon.css
         include ../js-css/layui/css/layui.css
         include ../js-css/css/comment.css
-
     body
         include nav-title.pug
         div(id='con')
@@ -23,20 +22,13 @@ html
         hr(class="layui-bg-white")
         //-评论部分
         div#comment
-            //- form(action='/article/addComment', method="post" class="layui-form layui-form-pane")
             ul.comment-list
-                li 
-                    img(src='/img/default.jpg')
-                    div 
-                        p.author !{from}123
-                        p.time 2018-12-16 21:09
-                    .she-said 这是评论内容
                 each info in comment
                     li
                         img(src= info.from.headPhoto)
                         div
                             p.author !{info.from.username}
-                            p.time !{info.created.toLocaleString()}
+                            p.time 发表于：!{info.created.toLocaleString()}
                             .she.said !{info.content}
             fieldset.text-center
                 legend 评论
@@ -54,33 +46,28 @@ html
                 tool:[],
                 height:180
             })
-            
             $('#comment button').click(async()=>{
                 let content = layedit.getContent(idx).trim()
-                console.log(content)
                 if(content.length === 0 )return layer.msg('评论不能为空')
-
                 const data={
                     content,
-                    articles: $(".artid").data("artid")
+                    article: $(".artid").data("artid")
                 }
                 $.post("/article/addComment",data, (data)=>{
-                    layer.msg(data.msg),{
-                        time:1000,
-                        end(){
-                            if(data.status===1){
-                                console.log('发送结束')
-                                window.location.reload()
+                    layer.msg(data.msg, {
+                        icon: 1,//提示的样式
+                        time: 1000, //1秒关闭（如果不配置，默认是3秒）//设置后不需要自己写定时关闭了，单位是毫秒
+                        end:function(){
+                            if(data.status === 1){
+                                window.location.reload()//评论发表成功，重新加载页面 = F5
                             }
                         }
-                    }
-                    console.log('发送完成')
+                    })
                 })
             })
-        })
+        });
     script
         include ../js-css/js/nav-title.js
         include ../js-css/js/star.js
-        //- include ../js-css/js/comment.js
 
     

@@ -114,7 +114,6 @@ let wrap = document.getElementById("wrap"),
                 active()
             }
         }
-        console.log(listimg)
         wrap.onmouseenter= function(){
             btn[0].style.cssText = "display:inline";//左右按钮显示
             btn[1].style.cssText = "display:inline";
