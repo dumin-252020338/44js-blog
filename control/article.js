@@ -81,9 +81,6 @@ exports.articleDetails = async(ctx) =>{
         .findById(_id)
         .populate('author', 'username')
         .then(data => data)
-        console.log({article: _id})
-        console.log(article)
-        console.log("id是" + article._id)
     //-查找评论
     const comment = await Comments
         .find({article:_id})
@@ -91,7 +88,6 @@ exports.articleDetails = async(ctx) =>{
         .populate("from", "username headPhoto")
         .then(data => data)
         .catch(err => {console.log(err)})
-        console.log(comment)
 
     await ctx.render('articleDetails',{
         title: article.title,

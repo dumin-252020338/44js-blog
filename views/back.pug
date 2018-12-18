@@ -5,7 +5,6 @@ html
         style
             include ../js-css/css/nav.css  
             include ../js-css/css/jump.css  
-
     body
         include nav-title.pug
         div(id="jump")   
@@ -35,9 +34,6 @@ html
                     break;
                 case "发表失败":
                     location.href = '/user/addArticlePage'
-                    break;
-                case "评论成功":
-                    //- location.href = '/user/addComment'
                     break;
                 case "评论失败":
                     location.href = '/user/addComment'

@@ -1,33 +1,37 @@
-div(id="nav")
-    ul(class="")
-        li(class="layui-nav-item")
-            a(href="/") 首页
-            span 
-        li
-            a(href="/user/autoPic") 轮播
-        li
-            a(href="/") 移动
-        li
-            a(href="/") 游戏
-        li
-            a(href="/") 编程
-div(id='rightBtn')
-    if session && !session.isNew
-        div(class='user-logout')
-            div(class='article-send')
-                a(href="/user/addArticlePage" class='no-f5') 发表文章
-            div(class='headPhoto')
-                img(src=session.headPhoto, alt="", srcset="" class='')
-            div(class='username')
-                a(href='/')=session.username
-            div(class='user')
-                a(href="/") 个人中心
-            div(class='logout') 
-                a(href="/user/logout") 退出
-    else 
-        div(class='log-reg')
-            div(class='log')
-                a(href="/user/login") 登录
-            div(class='reg') 
-                a(href="/user/regist") 注册            
-        
+div(id="con")
+div(id='head')
+    div(id="nav")
+        ul(class="")
+            li(class="layui-nav-item")
+                a(href="/") 首页
+                span 
+            li
+                a(href="/user/autoPic") 轮播
+            li
+                a(href="/") 移动
+            li
+                a(href="/") 游戏
+            li
+                a(href="/") 编程
+            li
+                a(href="/") 前端
+    div(id='rightBtn')
+        if session && !session.isNew
+            div(class='user-logout')
+                div(class='article-send')
+                    a(href="/user/addArticlePage" class='no-f5') 发表文章
+                div(class='headPhoto')
+                    img(src=session.headPhoto, alt="", srcset="" class='')
+                div(class='username')
+                    a(href='/')=session.username
+                div(class='user')
+                    a(href="/") 个人中心
+                div(class='logout') 
+                    a(href="/user/logout") 退出
+        else 
+            div(class='log-reg')
+                div(class='log')
+                    a(href="/user/login") 登录
+                div(class='reg') 
+                    a(href="/user/regist") 注册            
+            

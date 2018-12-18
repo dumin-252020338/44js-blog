@@ -44,7 +44,6 @@ form .layui-form-item input{
     border-radius: 5px;
 }
 form .layui-form-item p{
-    /* float: right; */
     position: relative;
     top: -10px;
     left:120px;

@@ -1,6 +1,7 @@
     * {
         margin: 0;
         padding: 0;
+        border:0;
     }
     body{background-color: rgb(155, 128, 112);}
     li {
@@ -12,65 +13,57 @@
     #nav a, #rightBtn a{
         color: #fff;
     }
-    div#nav {
-        height: 60px;
-        margin: 0px auto;
+    div#head{
+        height: 40px;
         background: #000;
-        text-align: center
+        font-size: 18px;
+    }
+    div#nav {
+        margin:0px auto;
+        width:40%;
     }
     div#nav ul {
         position: relative;
-        display: inline-block;
-        height: 30px;
-        margin: auto;
-        line-height: 30px;
-        padding: 15px 0;
     }
     div#nav ul li {
         float: left;
-        font-size: 18px;
         text-align: center;
         padding: 0px 30px;
     }
     div#nav ul li:hover {
-        background: skyblue;
+        background: #009688;
         border-radius: 20px;
         animation:liRun .5s;
-        font-size: 22px;
+        font-size: 20px;
     }
     div#nav ul li:hover a{
-        font-size: 18px;
-        color:red;
+        /* color:red; */
     }
     div#rightBtn{
-        position: absolute;
-        top:20px;
-        right:0px;
-        width: 500px;
-        font-size: 18px;
+        float: right;
     }
     /* 用户注册登录按钮 */
     div#rightBtn .log:hover, div#rightBtn .reg:hover{
-        background-color: #6cdd22;
-        font-size: 22px;
-        animation:run .8s;
+        background-color: #009688;
+        font-size: 20px;
+        animation:run .5s;
     }
     div#rightBtn .log-reg .log, .reg{
         display: inline-block;
         width: 100px;
-        border-radius: 20px;
+        border-radius: 10px;
         text-align: center;
     }
     /* 个人中心、退出按钮 */
     div#rightBtn .user:hover, div#rightBtn .logout:hover, div#rightBtn .user-logout .article-send:hover, div#rightBtn .headPhoto:hover, div#rightBtn .username:hover{
-        background-color: #6cdd22;
-        animation:run .8s; 
-        font-size: 22px;
+        background-color: #009688;
+        animation:run .5s; 
+        font-size: 20px;
     }
     div#rightBtn .user-logout .user,.headPhoto, .logout, .article-send, .username{
         display: inline-block;
         width: 100px;
-        border-radius: 20px;
+        border-radius: 10px;
         text-align: center;
         vertical-align:middle;
     }
@@ -82,21 +75,21 @@
     }
     @keyframes run{
         from{background-color: #000;}
-        to{background-color: #6cdd22; font-size: 22px;}
+        to{background-color: #009688; font-size: 20px;}
     }
     @keyframes liRun{
         from{background-color: #000;}
-        to{background-color: skyblue; font-size: 22px;}
+        to{background-color: #009688; font-size: 20px;}
     }
     /* 指针 */
     div#nav span{
-        display: none;
+        /* display: none; */
         width:0;
         height:0;
         border-width:10px 10px 0;
         border-style:solid;
-        border-color:rgb(238, 84, 84) transparent transparent;/*灰 透明 透明 */
+        border-color:rgb(0, 150, 136) transparent transparent;/*灰 透明 透明 */
         position:absolute;
-        top:45px;
+        top:28px;
         left:38px;
     }
