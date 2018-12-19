@@ -1,10 +1,19 @@
+#art-run{
+    position: absolute;
+    width:100%;
+}
+#art-run span{
+    position: relative;
+    top:0px;
+    left:100%;
+}
 #articleCon{
     font-size: 20px;
-    margin-top: 10px;
+    margin-top: 30px;
     color:#fff;
 }
 #articleCon ul{
-    width: 500px;
+    width: 50%;
     margin: 0px auto;
 }
 #articleCon .article-list{
@@ -15,6 +24,7 @@
     box-shadow: 2px 2px 5px 2px;
     border-radius: 10px;
     margin-bottom:10px;
+    padding:10px 0;
     font-family: 'Courier New', Courier, monospace;
     transition: all 0.3s linear;
 }
@@ -38,18 +48,21 @@
     transition: all 0.3s linear;
 }
 #articleCon .article-list .articleRight{
-    width: 400px;
+    width:80%;
 }
 #articleCon .article-list .articleRight .title, .author, .type, .content{
     cursor:pointer;
 }
+#articleCon .article-list .articleRight span, .author, .type, .content{
+    font-size: 16px;
+}
 #articleCon .article-list .articleRight .content{
-    height: 50px;
+    height: 60px;
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: justify;
-    margin: 5px 0;
-    text-indent: 30px;    
+    text-indent:2em;
+
 }
 #articleCon .article-list .articleRight span{
     display:inline-block;
@@ -65,9 +78,14 @@
     transition: all 0.3s linear;
     color:red;
 }
+#articleCon .article-list .articleRight .time{
+    text-indent: 42em;
+    font-size: 14px;
+    margin:5px 0;
+}
 #paging{
     display: flex;
-    width: 600px;
+    width: 50%;
     margin: 0 auto;
     justify-content: space-around;
 

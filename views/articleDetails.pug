@@ -33,10 +33,9 @@ html
             fieldset.text-center
                 legend 评论
                 div.txt
-                    //- textarea#comment-txt(name="", )
                     textarea#comment-txt.layui-textarea(placeholder='请输入内容', lay-verify='required', name="content")
                     button.layui-btn 回复
-                
+        include footer.pug        
     script(src="/layui/layui.js")
     script.
         layui.use(['element', 'layer', 'layedit'], function(){

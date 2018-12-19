@@ -1,4 +1,5 @@
-;let {random, floor, max, min} = Math    //创建构造函数
+;+function(){
+    let {random, floor, max, min} = Math    //创建构造函数
     let fn = function (color, t, l, x, y){
         this.color = color,
         this.top = t;
@@ -23,6 +24,7 @@
     for(let i=0; i<100; i++){
         star.innerHTML += "<p></p>";
     }
+
     let timer
     timer = function(){
         let arr = (new Array(100)).fill(new fn())//创建一个长度为50的数组，每一项都是一个实例化的对象
@@ -34,3 +36,4 @@
         }
     }
     setInterval(timer,100);
+}();

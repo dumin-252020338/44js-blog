@@ -6,6 +6,9 @@ html
         include ../js-css/layui/css/layui.css
         include ../js-css/css/nav.css
     body
+        div(id='art-run')
+            each info in artList
+                span !{info.author.username}发表了!{info.title}
         div(id='articleCon')
             ul
                 each info in artList
@@ -21,8 +24,11 @@ html
                             span 类型:
                             a(class='type') !{info.interest}
                             span(class='comment') 评论数:0
+                            p(class='time') !{info.created.toLocaleString()}
+                            hr(class="layui-bg-white")                            
                             div(class='content') !{info.content}
         #paging(data-maxNum=maxNum)
+        include footer.pug
     script(src="/layui/layui.js")
     script.
         layui.use(['laypage', 'layer'], function(){
@@ -51,6 +57,21 @@ html
             //-     ,curr: location.hash.replace('page/1', '') //获取hash值为fenye的当前页
             //-     ,hash: 'page' //自定义hash值
             //- });
+            let speed = 100
+            let span = document.querySelectorAll('#art-run span')
+            artRun()
+            function artRun(){
+                    //- maxWidth = document.body.clientWidth
+                    speed -= 3
+                    for(let i=0; len=span.length, i<len; i++){
+                        console.log(1)
+                        if(speed>0){
+                            console.log(2)
+                            span[i].style.left = speed +'%'
+                        }
+                    }
+                            requestAnimationFrame(artRun())
+            }
         })
     script
         include ../js-css/js/star.js
