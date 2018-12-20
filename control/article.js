@@ -63,7 +63,17 @@ exports.getList = async(ctx) =>{
         .then(data => data)
         .catch(err =>console.log(err))
         // console.log(artList)
-    artList.nowTime = new data()   
+
+    artList.nowTime = new Date().getTime()  
+    console.log(1)
+    // console.log(artList) 
+    console.log(artList[0].created.getTime()) 
+    console.log(artList.nowTime) 
+    let time = artList.nowTime - artList[0].created.getTime()
+    console.log(time) 
+    let year = time/1000/60/60/24/365
+    console.log(year)
+    console.log(2)
     await ctx.render("nav", {
         // title:title,
         session: ctx.session,
