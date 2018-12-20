@@ -1,8 +1,8 @@
 body{background-color: rgb(155, 128, 112);}
 #jump {
-    width: 300px;
+    width: 400px;
     height: 200px;
-    margin: auto;
+    margin: 10px auto;
     text-align: center;
     background: #000;
     border-radius: 10px;

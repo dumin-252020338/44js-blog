@@ -13,7 +13,7 @@ body{
 form#regist, form#login{
     display: inline-block;
     border: 1px solid #9aab94;
-    margin: auto;
+    margin: 10px auto;
 }
 form{
     display: none;

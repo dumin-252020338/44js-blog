@@ -8,7 +8,7 @@ html
     body
         div(id='art-run')
             each info in artList
-                span !{info.author.username}发表了!{info.title}
+                span !{info.author.username}发表了《!{info.title}》
         div(id='articleCon')
             ul
                 each info in artList
@@ -57,20 +57,38 @@ html
             //-     ,curr: location.hash.replace('page/1', '') //获取hash值为fenye的当前页
             //-     ,hash: 'page' //自定义hash值
             //- });
-            let speed = 100
+            let run
+            let artAuto = document.querySelectorAll('#art-run')[0]
             let span = document.querySelectorAll('#art-run span')
+            let bodyWidth = document.body.clientWidth
+            //单个 span 元素的宽度与屏幕占比
+            let spanWidth = span[0].clientWidth / document.body.clientWidth *100
+            let speed = 100 //初始位置
             artRun()
             function artRun(){
-                    //- maxWidth = document.body.clientWidth
-                    speed -= 3
-                    for(let i=0; len=span.length, i<len; i++){
-                        console.log(1)
-                        if(speed>0){
-                            console.log(2)
-                            span[i].style.left = speed +'%'
-                        }
+                speed -= 0.08 //偏移速度
+                for(let i=0; len=span.length, i<len; i++){
+                    if(speed > (-spanWidth * len)){
+                        span[i].style.left = (speed + spanWidth*i) +'%'
+                    }else{
+                        speed = 100
                     }
-                            requestAnimationFrame(artRun())
+                }
+                run = requestAnimationFrame(artRun) //调用动画函数
+            }
+            artAuto.onmouseleave = function(){
+                run = requestAnimationFrame(artRun) //调用动画函数
+                for(let i=0; len=span.length, i<len; i++){
+                    span[i].style.opacity = 0.4;
+                    span[i].style.fontSize = 14 +"px";
+                } 
+            }
+            artAuto.onmouseenter = function(){
+                cancelAnimationFrame(run) //取消动画
+                for(let i=0; len=span.length, i<len; i++){
+                    span[i].style.opacity = 0.8;
+                    span[i].style.fontSize = 15 +"px";
+                }
             }
         })
     script
