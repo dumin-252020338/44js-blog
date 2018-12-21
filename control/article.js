@@ -62,23 +62,35 @@ exports.getList = async(ctx) =>{
         })
         .then(data => data)
         .catch(err =>console.log(err))
-        // console.log(artList)
-
-    artList.nowTime = new Date().getTime()  
-    console.log(1)
-    // console.log(artList) 
-    console.log(artList[0].created.getTime()) 
-    console.log(artList.nowTime) 
-    let time = artList.nowTime - artList[0].created.getTime()
-    console.log(time) 
-    let year = time/1000/60/60/24/365
-    console.log(year)
-    console.log(2)
+        let arr = artList.map((v, i)=>{
+            let artTime = v.created.getTime() //发表文章的时间毫秒值
+                nowTime = new Date().getTime() //当前时间的毫秒值
+                msVal = (nowTime - artTime)/1000  //秒差值
+                dateVal = Math.floor(msVal/60/60/24) //天数差值
+                beforeTime =null
+            switch (dateVal){
+                case 0 :
+                    beforeTime = '今天'
+                    break;
+                case 1 :
+                    beforeTime = '昨天'
+                    break;
+                case 2 :
+                    beforeTime = '前天'
+                    break;
+                default :
+                    beforeTime = v.created.toLocaleString()
+            }
+            return beforeTime
+        })
+        console.log(arr)
+        console.log(arr[0])
     await ctx.render("nav", {
         // title:title,
         session: ctx.session,
         artList: artList,
         maxNum,
+        arr:arr,
     })
 }
 

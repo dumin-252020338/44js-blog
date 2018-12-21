@@ -8,7 +8,9 @@ html
     body
         div(id='art-run')
             each info in artList
-                span !{info.author.username}发表了《!{info.title}》
+                span(class='artInfo') !{info.author.username}发表了《!{info.title}》
+            each i in arr
+                span(class='howLongTime') !{i}
         div(id='articleCon')
             ul
                 each info in artList
@@ -59,17 +61,20 @@ html
             //- });
             let run
             let artAuto = document.querySelectorAll('#art-run')[0]
-            let span = document.querySelectorAll('#art-run span')
+            let artInfo = document.querySelectorAll('#art-run span.artInfo')
+            let howLongTime = document.querySelectorAll('#art-run span.howLongTime')
             let bodyWidth = document.body.clientWidth
             //单个 span 元素的宽度与屏幕占比
-            let spanWidth = span[0].clientWidth / document.body.clientWidth *100
+            let spanWidth = artInfo[0].clientWidth / document.body.clientWidth *100
+            let howLongTimeWidth = howLongTime[0].clientWidth / document.body.clientWidth *100
             let speed = 100 //初始位置
             artRun()
             function artRun(){
                 speed -= 0.08 //偏移速度
-                for(let i=0; len=span.length, i<len; i++){
+                for(let i=0; len=artInfo.length, i<len; i++){
                     if(speed > (-spanWidth * len)){
-                        span[i].style.left = (speed + spanWidth*i) +'%'
+                        artInfo[i].style.left = (speed + spanWidth*i) +'%'
+                        howLongTime[i].style.left = ((speed + (howLongTimeWidth+18)*i)-1.5) +'%'
                     }else{
                         speed = 100
                     }
@@ -78,16 +83,16 @@ html
             }
             artAuto.onmouseleave = function(){
                 run = requestAnimationFrame(artRun) //调用动画函数
-                for(let i=0; len=span.length, i<len; i++){
-                    span[i].style.opacity = 0.4;
-                    span[i].style.fontSize = 14 +"px";
+                for(let i=0; len=artInfo.length, i<len; i++){
+                    artInfo[i].style.opacity = 0.5;
+                    howLongTime[i].style.opacity = 0.5;
                 } 
             }
             artAuto.onmouseenter = function(){
                 cancelAnimationFrame(run) //取消动画
-                for(let i=0; len=span.length, i<len; i++){
-                    span[i].style.opacity = 0.8;
-                    span[i].style.fontSize = 15 +"px";
+                for(let i=0; len=artInfo.length, i<len; i++){
+                    artInfo[i].style.opacity = 0.9;
+                    howLongTime[i].style.opacity = 0.9;
                 }
             }
         })
