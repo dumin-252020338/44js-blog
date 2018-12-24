@@ -1,27 +1,26 @@
-html{
-    overflow-x:scroll;
-}
+
 #art-run{
-    position: relative;
-    width:100%;
-    height:20px;
-    color: rgb(255, 253, 253);
     overflow: hidden;
-    text-overflow:ellipsis;
-    white-space: nowrap;
+    height: 25px;
+    background-color: rgb(197, 194, 194);
 }
-#art-run span.artInfo{
-    position: absolute;
-    width:20%;
+#art-run .timeAgo, .artInfo{
+    position: relative;
+    /* left:100%; */
+    opacity:0.5;
+    width:1000px;
+}
+#art-run span.artInfoAuthor{
+    display: inline-block;
+    width:200px;
+    margin:0 115px 0 10px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
-    opacity:0.5;
 }
 #art-run span.howLongTime {
-    position: absolute;
-    width:2%;
-    opacity:0.5;
+    margin:0 290px 0 0;
+
 }
 #articleCon{
     font-size: 20px;

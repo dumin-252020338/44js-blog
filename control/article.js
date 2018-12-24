@@ -62,7 +62,7 @@ exports.getList = async(ctx) =>{
         })
         .then(data => data)
         .catch(err =>console.log(err))
-        let arr = artList.map((v, i)=>{
+        let artListArr = artList.map((v, i)=>{
             let artTime = v.created.getTime() //发表文章的时间毫秒值
                 nowTime = new Date().getTime() //当前时间的毫秒值
                 msVal = (nowTime - artTime)/1000  //秒差值
@@ -79,18 +79,17 @@ exports.getList = async(ctx) =>{
                     beforeTime = '前天'
                     break;
                 default :
-                    beforeTime = v.created.toLocaleString()
+                    beforeTime = dateVal + '天前'
             }
             return beforeTime
         })
-        console.log(arr)
-        console.log(arr[0])
+        console.log(artListArr)
     await ctx.render("nav", {
         // title:title,
         session: ctx.session,
         artList: artList,
+        artListArr:artListArr,
         maxNum,
-        arr:arr,
     })
 }
 
