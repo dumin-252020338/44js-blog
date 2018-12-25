@@ -14,6 +14,7 @@ body{background-color: rgb(155, 128, 112);}
 }
 #artilceDetails .content {
     text-indent: 2em;
+    word-wrap:break-word;
 }
 #comment{
     width: 1000px;

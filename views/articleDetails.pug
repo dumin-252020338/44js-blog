@@ -4,8 +4,9 @@ html
         include ../js-css/css/nav.css
         include ../js-css/css/star.css
         include ../js-css/css/articleCon.css
-        include ../js-css/layui/css/layui.css
+        include ../js-css/layui/css/layui.css 
         include ../js-css/css/comment.css
+
     body
         include nav-title.pug
         //-文章详情
@@ -30,37 +31,21 @@ html
                             p.author !{info.from.username}
                             p.time 发表于：!{info.created.toLocaleString()}
                             .she.said !{info.content}
-            fieldset.text-center
+            fieldset.text-center.layui-elem-field.layui-field-title(style='margin-top: 50px;')
                 legend 评论
                 div.txt
-                    textarea#comment-txt.layui-textarea(placeholder='请输入内容', lay-verify='required', name="content")
+                    textarea#comment-txt.layui-textarea(placeholder='请输入内容', lay-verify='required', name="content", style='display: none')
                     button.layui-btn 回复
         include footer.pug        
-    script(src="/layui/layui.js")
+    
+    script(src="/layui/layui.js")           
     script.
-        layui.use(['element', 'layer', 'layedit'], function(){
+        layui.use(['layedit', 'element', 'layer' ], function(){
             const element = layui.element
                 layer = layui.layer
-                laydate = layui.laydate
+                layedit = layui.layedit
             const $ = layui.$
-            const idx = layedit.build("comment-txt",{
-                tool:[
-                    'strong' //加粗
-                    ,'italic' //斜体
-                    ,'underline' //下划线
-                    ,'del' //删除线
-                    ,'|' //分割线
-                    ,'left' //左对齐
-                    ,'center' //居中对齐
-                    ,'right' //右对齐
-                    ,'link' //超链接
-                    ,'unlink' //清除链接
-                    ,'face' //表情
-                    ,'image' //插入图片
-                    ,'help' //帮助
-                ],
-                height:180
-            })
+            const idx = layedit.build("comment-txt")
             $('#comment button').click(async()=>{
                 let content = layedit.getContent(idx).trim()
                 if(content.length === 0 )return layer.msg('评论不能为空')
