@@ -1,6 +1,7 @@
 body{
     background-color: rgb(155, 128, 112);
     position: relative;
+    overflow: hidden;
 }
 #con p{
     display:inline-block;

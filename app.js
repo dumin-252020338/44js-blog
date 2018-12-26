@@ -44,6 +44,6 @@ app.use(views(join(__dirname, 'views'), {
 app
   .use(router.routes())
   .use(router.allowedMethods())
-  .listen(3000, ()=>{
-    console.log('监听在3000端口')
+  .listen(6868, ()=>{
+    console.log('程序监听在6868端口')
   })

@@ -20,12 +20,6 @@ let wrap = document.getElementById("wrap"),
             listp[index].className ='active';
             listimg[index].classList ='active';
             listspan[index].className ='active-dot';
-            //随机颜色
-            const {floor, random} = Math;
-            function rgba(){
-                return "rgba("+floor(random()*225+1)+", "+floor(random()*225+1)+", "+floor(random()*225+1)+", "+random().toFixed(1)+")"
-            }
-            listimg[index].style.backgroundColor = rgba();
         }  
         //正常播放
         norbtn.onclick = function (){
@@ -81,15 +75,7 @@ let wrap = document.getElementById("wrap"),
                     index = 0;
                 }
                 active()
-        },1000)    
-        }
-        //鼠标离开继续自动轮播
-        wrap.onmouseleave = function(){
-            autoRun(); 
-        }
-        //鼠标进入停止自动轮播
-        wrap.onmouseenter= function(){
-            clearInterval(autoPicTimer)
+            },1000)    
         }
         function cirRun() {
             norbtn.style.backgroundColor ='';
@@ -114,11 +100,15 @@ let wrap = document.getElementById("wrap"),
                 active()
             }
         }
+        //鼠标进入停止自动轮播        
         wrap.onmouseenter= function(){
+            clearInterval(autoPicTimer)            
             btn[0].style.cssText = "display:inline";//左右按钮显示
             btn[1].style.cssText = "display:inline";
         }
+        //鼠标离开自动轮播        
         wrap.onmouseleave= function(){
+            autoRun(); 
             btn[0].style.cssText = "";//左右按钮消失
             btn[1].style.cssText = "";
         }

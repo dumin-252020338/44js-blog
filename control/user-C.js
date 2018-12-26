@@ -85,12 +85,12 @@ exports.login = async (ctx) =>{
     .then(async (data) =>{
         if(!data){
             await ctx.render('back', {
-                status: "密码错误，请重新登录1",
+                status: "密码错误，请重新登录",
                 back: "即将返回登录页面"
             })
         }else{
             ctx.cookies.set('username', username, {
-                domain: 'http://localhost:3000',
+                domain: 'http://106.14.118.126',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到
@@ -99,7 +99,7 @@ exports.login = async (ctx) =>{
             })
 
             ctx.cookies.set('uid', data[0]._id, {
-                domain: 'http://localhost:3000',
+                domain: 'http://106.14.118.126',
                 path: '/',
                 maxAge: 1000*60*60,
                 httpOnly: false,//前端浏览器是否能访问到

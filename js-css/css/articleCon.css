@@ -13,7 +13,7 @@
 #art-run span.artInfoAuthor{
     display: inline-block;
     width:200px;
-    margin:0 115px 0 10px;
+    margin:0 115px 0 30px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
