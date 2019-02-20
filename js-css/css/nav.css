@@ -10,10 +10,12 @@
     a{
         text-decoration: none;
     }
-    #nav a, #rightBtn a{
+    div#nav a, #rightBtn a{
         color: #fff;
     }
-    div#head{
+    div#head {
+        display: flex;
+        width: 100vw;
         height: 40px;
         padding:5px 0;
         background: #000;
@@ -21,7 +23,6 @@
     }
     div#nav {
         margin:0px auto;
-        width:40%;
     }
     div#nav ul {
         position: relative;
@@ -36,12 +37,6 @@
         border-radius: 20px;
         animation:liRun .5s;
         font-size: 20px;
-    }
-    div#nav ul li:hover a{
-        /* color:red; */
-    }
-    div#rightBtn{
-        float: right;
     }
     /* 用户注册登录按钮 */
     div#rightBtn .log:hover, div#rightBtn .reg:hover{

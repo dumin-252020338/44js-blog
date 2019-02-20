@@ -155,3 +155,9 @@ exports.logout = async (ctx) =>{
     ctx.redirect('/')//返回首页
     
 }
+//css实战 华为商城
+exports.huawei = async(ctx)=>{
+    await ctx.render("huawei.pug", {
+        // session: ctx.session
+    })
+}

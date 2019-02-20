@@ -44,5 +44,7 @@ router.get("/article/:id", user.keepLogin, article.articleDetails)
 //文章评论路由
 router.post("/article/addComment", user.keepLogin, comment.addComment)
 
+//css实战 华为商城
+router.get("/user/huawei", user.huawei)
 
 module.exports = router

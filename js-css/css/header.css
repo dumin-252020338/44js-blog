@@ -1,0 +1,107 @@
+	#title a.top,.last{
+		border-right:1px solid #555;
+		padding:0px 10px;
+	}
+	#title a:hover{
+		color:red;
+	}
+	#title{
+		width:100vw;
+		height:110px;
+	}
+	#title .icon-content{
+		width:1200px;
+		height:25px;
+		margin:0px auto 0px;
+		font-size:12px;
+		padding-top:10px;
+	}
+	#title .icon-content>ul>li{
+		float:left;
+		text-align:center;
+		line-height:15px;
+	}
+	#title .left{
+		float:right;
+	}
+	#title a.last{
+		border-right:none;
+	}
+	#title span.down:after{
+		display:inline-block;
+		content:"";
+		vertical-align: middle;
+		border:5px solid transparent;
+		border-top-color:#555;
+		border-bottom:none;
+        margin-left:5px;
+		transition:transform 0.5s;
+	} 
+	#title a.last:hover span.down:after{
+ 		transform:rotate(180deg);
+	}
+	#title a.gwc{
+		padding-left:40px;
+		background:url('../img/header/icon-header.png') no-repeat 10px 1px/41px 166px;
+	}
+	#title .nav{
+		display:inline-block;
+		width:520px;
+		height:60px;
+		padding-left:660px;
+		background:url('../img/header/logo.png') no-repeat 370px 5px/240px 50px;
+	}
+	#title a.mid{
+		display:inline-block;
+		padding:20px 10px 5px 0px;
+		font-size:16px;
+	}
+	#title a.mid:hover{
+		border-bottom:2px solid red;
+	}
+	#title a.last{
+		display:inline-block;
+	}
+	#title input{
+		width:340px;
+		height:30px;
+		margin-left:10px;
+		border-color:transparent;
+		border-bottom:1px solid #555;
+	}
+	#title input::-webkit-input-placeholder{
+		text-indent: 160px;
+	}
+	#title a.a-last{
+		position:relative;
+		top:12px;
+		right:32px;
+		display:inline-block;
+		width:25px;
+		height:25px;
+		background:url('../img/content/01 login and icon/icon-common.png') no-repeat 0px -25px/200px 236px;
+	}
+
+	#title .icon-content .h-1{ 
+		display:none;
+		position:absolute;
+		top:25px;
+		left:950px;
+		padding: 5px;
+		background-color:#fff;
+		font-size:14px;
+	}
+	#title .icon-content .h-1 ul{
+		display: flex;
+		justify-content: space-around;
+		width:500px;
+		text-align:center;
+	}
+	#title .icon-content .h-1 li{
+		line-height:80px;
+		height: 80px;
+	}
+	#title .icon-content li:hover .h-1{
+		display:inline-block;
+		background-color: rgb(219, 218, 219);
+	}
